@@ -13,9 +13,9 @@
   "project" : {
     "version" : 11,
     "connections" : [ {
-      "name" : "awsBedrock",
-      "uri" : "aws.bedrock://awsBedrock",
-      "tags" : [ ],
+      "name" : "mqtt",
+      "uri" : "mqtt://0.0.0.0:1885",
+      "tags" : [ "starter_solution" ],
       "writes" : {
         "flattenModeledValues" : false
       },
@@ -29,103 +29,19 @@
         }
       },
       "settings" : {
-        "accessKey" : "AKIAQTYS3DMLSVIOIIHR",
-        "password" : {
-          "type" : "Encrypted",
-          "value" : {
-            "keyId" : "gcqkahr8pj+67AXASPb5dw==",
-            "iv" : "2iuSLrleVIIUDVUKmEs7dw==",
-            "ciphertext" : "8HjuRlrMexbJ8u0q6pu8l1oh/obVJl4YJ3ByZ0Jb6bhNnPtYKhpaAbxIIrvcrlll"
-          }
-        },
-        "region" : "us-west-2"
+        "connectionTimeoutSeconds" : 10,
+        "keepAliveSeconds" : 60,
+        "requestTimeoutMS" : 5000,
+        "cleanSession" : true,
+        "clientId" : "mqtt",
+        "ssl" : false,
+        "redundantBrokers" : [ ],
+        "inputDiscovery" : ""
       }
     }, {
-      "name" : "azureOpenAI",
-      "uri" : "azure.openai://azureOpenAI",
-      "tags" : [ ],
-      "writes" : {
-        "flattenModeledValues" : false
-      },
-      "subscriptions" : { },
-      "storeForward" : {
-        "enabled" : false,
-        "maxEntries" : 100,
-        "waitOnFailureInterval" : {
-          "duration" : 1,
-          "units" : "Seconds"
-        }
-      },
-      "settings" : {
-        "endpoint" : "https://highbyteopenaitest.openai.azure.com/",
-        "password" : {
-          "type" : "Encrypted",
-          "value" : {
-            "keyId" : "gcqkahr8pj+67AXASPb5dw==",
-            "iv" : "A+cNikGnvCef5zuPe6kkWQ==",
-            "ciphertext" : "Usg5i+cJomMTmRVKxnnXz5l3q4oxcvgMxkO0F5Z7TgSgODE1qxHwKWgZLgnn6XGscoq+t6XYOwUxilOvzFQsO/gZo180nsCS3rBuUiHeL2pWIODyXerGPJsEhkMzHZms"
-          }
-        }
-      }
-    }, {
-      "name" : "gemini",
-      "uri" : "google.gemini://gemini",
-      "tags" : [ ],
-      "writes" : {
-        "flattenModeledValues" : false
-      },
-      "subscriptions" : { },
-      "storeForward" : {
-        "enabled" : false,
-        "maxEntries" : 100,
-        "waitOnFailureInterval" : {
-          "duration" : 1,
-          "units" : "Seconds"
-        }
-      },
-      "settings" : {
-        "password" : {
-          "type" : "Encrypted",
-          "value" : {
-            "keyId" : "gcqkahr8pj+67AXASPb5dw==",
-            "iv" : "3Tdpd/Wh/xgYAeSzsVMKjg==",
-            "ciphertext" : "+iiIo/h7R8KxHPZaDCrWb9tjzPWTMfVrqTOOQ1t1W4kJJEsCiA8xrZcViewXxCob"
-          }
-        }
-      }
-    }, {
-      "name" : "ignition",
-      "uri" : "inductive.ignition://host.docker.internal:45280",
-      "tags" : [ ],
-      "writes" : {
-        "flattenModeledValues" : false
-      },
-      "subscriptions" : { },
-      "storeForward" : {
-        "enabled" : false,
-        "maxEntries" : 100,
-        "waitOnFailureInterval" : {
-          "duration" : 1,
-          "units" : "Seconds"
-        }
-      },
-      "settings" : {
-        "connectTimeoutSeconds" : 5,
-        "requestTimeoutMS" : 30000,
-        "compression" : "GZIP",
-        "password" : {
-          "type" : "Encrypted",
-          "value" : {
-            "keyId" : "gcqkahr8pj+67AXASPb5dw==",
-            "iv" : "MVf9NLnmrfUsZknfR3V+MQ==",
-            "ciphertext" : "rdD7SoD0MXJH2Yb9UZed3w=="
-          }
-        }
-      }
-    }, {
-      "name" : "opcChangedName",
-      "uri" : "opc.tcp://host.docker.internal:49320",
-      "tags" : [ ],
+      "name" : "opc",
+      "uri" : "opc.tcp://52.10.6.4:49320",
+      "tags" : [ "starter_solution" ],
       "writes" : {
         "flattenModeledValues" : false
       },
@@ -155,9 +71,9 @@
         "sessionName" : ""
       }
     }, {
-      "name" : "openAI",
-      "uri" : "openai.ai://openAI",
-      "tags" : [ ],
+      "name" : "sql",
+      "uri" : "jdbc.sqlserver://52.10.6.4:1433",
+      "tags" : [ "starter_solution" ],
       "writes" : {
         "flattenModeledValues" : false
       },
@@ -171,365 +87,35 @@
         }
       },
       "settings" : {
-        "password" : {
-          "type" : "Encrypted",
-          "value" : {
-            "keyId" : "gcqkahr8pj+67AXASPb5dw==",
-            "iv" : "F+x5bqYnX6jaQkCsHI9Zfw==",
-            "ciphertext" : "8E+Q6uFCLNrU8rcDo+HWfKHHf79CSVF4lqjQIWwj0nkHu7GcF3lbBKZLEnJVxacSE/IeIV7RLDJ7rc8Nfg+hbz4hf/03VuI3N0UFUZ+/queg3Icly/5R1CdmBB+I2jSNJxgM2b/Op4I7JbClq0XET0KDsvELB7MY2PuWyrv9QEEo22yQFFHpA9yaJlab1tzM/ydOHSONyU0vGf+lOqowCfJNkkwBGPR0ToXydT1bqsQ="
-          }
-        }
-      }
-    }, {
-      "name" : "osisoft",
-      "uri" : "osisoft.afsdk://host.docker.internal:45290",
-      "tags" : [ ],
-      "writes" : {
-        "flattenModeledValues" : false
-      },
-      "subscriptions" : { },
-      "storeForward" : {
-        "enabled" : false,
-        "maxEntries" : 100,
-        "waitOnFailureInterval" : {
-          "duration" : 1,
-          "units" : "Seconds"
-        }
-      },
-      "settings" : {
-        "connectTimeoutSeconds" : 5,
-        "requestTimeoutMS" : 30000,
-        "compression" : "NONE",
-        "auth" : {
-          "type" : "credentials",
-          "username" : "osisoft",
-          "password" : {
-            "type" : "Encrypted",
-            "value" : {
-              "keyId" : "gcqkahr8pj+67AXASPb5dw==",
-              "iv" : "6jmfNYmiL6pBqie3wiuXvg==",
-              "ciphertext" : "LnmjpoYbfayLB8N09rnrzQ=="
-            }
-          }
-        },
-        "password" : {
-          "type" : "Encrypted",
-          "value" : {
-            "keyId" : "gcqkahr8pj+67AXASPb5dw==",
-            "iv" : "aObqHGx2T8Eh4f34QvKr7A==",
-            "ciphertext" : "EXe+Fk/HDwb6B3OPlDND3g=="
-          }
-        }
-      }
-    }, {
-      "name" : "rest",
-      "uri" : "rest.client://rest",
-      "tags" : [ ],
-      "writes" : {
-        "flattenModeledValues" : false
-      },
-      "subscriptions" : { },
-      "storeForward" : {
-        "enabled" : false,
-        "maxEntries" : 100,
-        "waitOnFailureInterval" : {
-          "duration" : 1,
-          "units" : "Seconds"
-        }
-      },
-      "settings" : {
-        "authentication" : {
-          "type" : "None"
-        },
-        "baseURL" : "http://yahoo.com"
-      }
-    }, {
-      "name" : "vf_mqtt",
-      "uri" : "mqtt://proveit.virtualfactory.online:1883",
-      "tags" : [ ],
-      "writes" : {
-        "flattenModeledValues" : false
-      },
-      "subscriptions" : { },
-      "storeForward" : {
-        "enabled" : false,
-        "maxEntries" : 100,
-        "waitOnFailureInterval" : {
-          "duration" : 1,
-          "units" : "Seconds"
-        }
-      },
-      "settings" : {
-        "connectionTimeoutSeconds" : 10,
-        "keepAliveSeconds" : 60,
-        "requestTimeoutMS" : 5000,
-        "maxInflight" : 1000,
-        "cleanSession" : true,
+        "database" : "serviceinfo",
         "username" : "highbyte",
         "password" : {
           "type" : "Encrypted",
           "value" : {
             "keyId" : "gcqkahr8pj+67AXASPb5dw==",
-            "iv" : "JnGzXl1oceXgxn2rhnT27Q==",
-            "ciphertext" : "tfK2C3up+oGT5Zj4do4gNQ=="
+            "iv" : "oXPQ/hkNS2gm/U6bgh9qhA==",
+            "ciphertext" : "RzPQmgwlQZJrf3Y+q0yDtw=="
           }
-        }
-      }
-    }, {
-      "name" : "vf_mysql",
-      "uri" : "jdbc.mysql://proveit.virtualfactory.online:3306",
-      "tags" : [ ],
-      "writes" : {
-        "flattenModeledValues" : false
-      },
-      "subscriptions" : { },
-      "storeForward" : {
-        "enabled" : false,
-        "maxEntries" : 100,
-        "waitOnFailureInterval" : {
-          "duration" : 1,
-          "units" : "Seconds"
-        }
-      },
-      "settings" : {
+        },
         "strategy" : {
           "type" : "default"
-        },
-        "database" : "mes_lite",
-        "username" : "proveitreadonly",
-        "password" : {
-          "type" : "Encrypted",
-          "value" : {
-            "keyId" : "gcqkahr8pj+67AXASPb5dw==",
-            "iv" : "E0EojbiqXpFEB7Lhk357xA==",
-            "ciphertext" : "8/SNiIY2HSeNP5wfIl3+xXTRtH77slukS64OOnm0cgE="
-          }
         }
-      }
-    }, {
-      "name" : "vf_opc",
-      "uri" : "opc.tcp://proveit.virtualfactory.online:4840",
-      "tags" : [ ],
-      "writes" : {
-        "flattenModeledValues" : false
-      },
-      "subscriptions" : {
-        "subscriptionRate" : {
-          "duration" : 1,
-          "units" : "Seconds"
-        }
-      },
-      "storeForward" : {
-        "enabled" : false,
-        "maxEntries" : 100,
-        "waitOnFailureInterval" : {
-          "duration" : 1,
-          "units" : "Seconds"
-        }
-      },
-      "settings" : {
-        "security" : "None",
-        "authentication" : {
-          "type" : "Username_Basic256",
-          "username" : "highbyte",
-          "password" : {
-            "type" : "Encrypted",
-            "value" : {
-              "keyId" : "gcqkahr8pj+67AXASPb5dw==",
-              "iv" : "zBG6jl9YNu7SgT7xTvxCjw==",
-              "ciphertext" : "eLF9uKwmUSoFJ6daseDZ+Q=="
-            }
-          }
-        },
-        "connectTimeoutSeconds" : 5,
-        "requestTimeoutMS" : 5000,
-        "maxItemsPerRead" : 512,
-        "maxItemsPerWrite" : 256,
-        "sessionName" : ""
-      }
-    }, {
-      "name" : "weatherRESTAPI",
-      "uri" : "rest.client://weatherRESTAPI",
-      "tags" : [ ],
-      "writes" : {
-        "flattenModeledValues" : false
-      },
-      "subscriptions" : { },
-      "storeForward" : {
-        "enabled" : false,
-        "maxEntries" : 100,
-        "waitOnFailureInterval" : {
-          "duration" : 1,
-          "units" : "Seconds"
-        }
-      },
-      "settings" : {
-        "authentication" : {
-          "type" : "None"
-        },
-        "baseURL" : "http://api.weatherapi.com"
       }
     } ],
     "conditions" : [ ],
     "inputs" : [ {
-      "name" : "claude",
-      "connection" : "awsBedrock",
-      "type" : "aws.bedrock",
-      "qualifier" : {
-        "modelType" : "arn:aws:bedrock:us-west-2:042452327191:inference-profile/us.anthropic.claude-opus-4-20250514-v1:0",
-        "responseFormat" : "string",
-        "message" : "oh hey"
-      },
-      "cacheLifetime" : {
-        "enabled" : false
-      },
-      "template" : {
-        "type" : "Off"
-      },
-      "parameters" : {
-        "type" : "EmptyParameters"
-      }
-    }, {
-      "name" : "gpt4",
-      "connection" : "azureOpenAI",
-      "type" : "azure.openai",
-      "qualifier" : {
-        "responseFormat" : "string",
-        "modelType" : "gpt-4",
-        "message" : "oh hey"
-      },
-      "cacheLifetime" : {
-        "enabled" : false
-      },
-      "template" : {
-        "type" : "Off"
-      },
-      "parameters" : {
-        "type" : "EmptyParameters"
-      }
-    }, {
-      "name" : "flash35",
-      "connection" : "gemini",
-      "type" : "google.gemini",
-      "qualifier" : {
-        "modelType" : "gemini-2.5-flash",
-        "responseFormat" : "string",
-        "message" : "oh hey"
-      },
-      "cacheLifetime" : {
-        "enabled" : false
-      },
-      "template" : {
-        "type" : "Off"
-      },
-      "parameters" : {
-        "type" : "EmptyParameters"
-      }
-    }, {
-      "name" : "_default__doc",
-      "connection" : "ignition",
-      "type" : "inductive.ignition",
-      "qualifier" : {
-        "type" : "path",
-        "tagAddress" : "[default]doc"
-      },
-      "cacheLifetime" : {
-        "enabled" : false
-      },
-      "template" : {
-        "type" : "Off"
-      },
-      "parameters" : {
-        "type" : "EmptyParameters"
-      }
-    }, {
-      "name" : "FertilizerDemo_Line1",
-      "connection" : "opcChangedName",
+      "name" : "Motor001_PLC_Amps",
+      "connection" : "opc",
       "type" : "opc.tcp",
       "qualifier" : {
         "namespaceIndex" : 2,
         "identifierType" : "String",
-        "identifier" : "FertilizerDemo.Line1",
-        "dataType" : "Auto",
-        "type" : "Branch",
-        "maxDepth" : 5,
-        "cacheInterval" : {
-          "duration" : 1,
-          "units" : "Hours"
-        },
-        "ignoreBadQuality" : false,
-        "browseVariableNodes" : false
-      },
-      "cacheLifetime" : {
-        "enabled" : false
-      },
-      "template" : {
-        "type" : "Off"
-      },
-      "parameters" : {
-        "type" : "EmptyParameters"
-      }
-    }, {
-      "name" : "FertilizerDemo_Line2",
-      "connection" : "opcChangedName",
-      "type" : "opc.tcp",
-      "qualifier" : {
-        "namespaceIndex" : 2,
-        "identifierType" : "String",
-        "identifier" : "FertilizerDemo.Line2",
-        "dataType" : "Auto",
-        "type" : "Branch",
-        "maxDepth" : 4,
-        "cacheInterval" : {
-          "duration" : 1,
-          "units" : "Hours"
-        },
-        "ignoreBadQuality" : false,
-        "browseVariableNodes" : false
-      },
-      "cacheLifetime" : {
-        "enabled" : false
-      },
-      "template" : {
-        "type" : "Off"
-      },
-      "parameters" : {
-        "type" : "EmptyParameters"
-      }
-    }, {
-      "name" : "gpt4",
-      "connection" : "openAI",
-      "type" : "openai.ai",
-      "qualifier" : {
-        "modelType" : "gpt-4",
-        "responseFormat" : "string",
-        "message" : "hello world"
-      },
-      "cacheLifetime" : {
-        "enabled" : false
-      },
-      "template" : {
-        "type" : "Off"
-      },
-      "parameters" : {
-        "type" : "EmptyParameters"
-      }
-    }, {
-      "name" : "test",
-      "connection" : "osisoft",
-      "type" : "osisoft.afsdk",
-      "qualifier" : {
-        "type" : "point",
-        "options" : {
-          "get" : "currentValue",
-          "includeMetaData" : true,
-          "includeChildren" : true,
-          "useReference" : false,
-          "points" : [ "test.testAsset.a" ],
-          "query" : "",
-          "index" : false,
-          "indexWindow" : "",
-          "additionalMetadataProperties" : [ "step", "shutdown", "displaydigits", "compdev", "archiving", "Excdev" ]
+        "identifier" : "Motor001.PLC.Amps",
+        "type" : "Tag",
+        "dataType" : "UInt32",
+        "samplingInterval" : {
+          "duration" : 0,
+          "units" : "Seconds"
         }
       },
       "cacheLifetime" : {
@@ -542,58 +128,15 @@
         "type" : "EmptyParameters"
       }
     }, {
-      "name" : "Lam",
-      "connection" : "vf_mqtt",
-      "type" : "mqtt",
-      "qualifier" : {
-        "inputType" : "Branch",
-        "payloadType" : "json",
-        "qos" : 0,
-        "topic" : "Enterprise/Dallas/Lam/#",
-        "includeTopic" : false
-      },
-      "cacheLifetime" : {
-        "enabled" : false
-      },
-      "template" : {
-        "type" : "Off"
-      },
-      "parameters" : {
-        "type" : "EmptyParameters"
-      }
-    }, {
-      "name" : "cell",
-      "connection" : "vf_mysql",
-      "type" : "jdbc.mysql",
-      "qualifier" : {
-        "query" : "select * from `schedule`"
-      },
-      "cacheLifetime" : {
-        "enabled" : false
-      },
-      "template" : {
-        "type" : "Off"
-      },
-      "parameters" : {
-        "type" : "EmptyParameters"
-      }
-    }, {
-      "name" : "Enterprise_Dallas_Lam",
-      "connection" : "vf_opc",
+      "name" : "Motor001_PLC_Error",
+      "connection" : "opc",
       "type" : "opc.tcp",
       "qualifier" : {
         "namespaceIndex" : 2,
-        "identifierType" : "Numeric",
-        "identifier" : "17",
-        "dataType" : "Auto",
-        "type" : "Branch",
-        "maxDepth" : 1,
-        "cacheInterval" : {
-          "duration" : 1,
-          "units" : "Hours"
-        },
-        "ignoreBadQuality" : false,
-        "browseVariableNodes" : false
+        "identifierType" : "String",
+        "identifier" : "Motor001.PLC.Error",
+        "type" : "Tag",
+        "dataType" : "String"
       },
       "cacheLifetime" : {
         "enabled" : false
@@ -605,16 +148,15 @@
         "type" : "EmptyParameters"
       }
     }, {
-      "name" : "currentWeather",
-      "connection" : "weatherRESTAPI",
-      "type" : "rest.client",
+      "name" : "Motor001_PLC_Speed",
+      "connection" : "opc",
+      "type" : "opc.tcp",
       "qualifier" : {
-        "acceptType" : "*/*",
-        "method" : "GET",
-        "contentType" : "application/json",
-        "includeMetadata" : false,
-        "endpointURL" : "/v1/current.json?key=c559e6e3078848cf9b5134317250807 &q={{this.city}}&aqi=no",
-        "isFile" : false
+        "namespaceIndex" : 2,
+        "identifierType" : "String",
+        "identifier" : "Motor001.PLC.Speed",
+        "type" : "Tag",
+        "dataType" : "UInt32"
       },
       "cacheLifetime" : {
         "enabled" : false
@@ -623,106 +165,132 @@
         "type" : "Off"
       },
       "parameters" : {
-        "type" : "inline",
-        "model" : {
-          "name" : "params",
-          "tags" : [ ],
-          "attributes" : [ {
-            "attributeType" : "Internal",
-            "name" : "city",
-            "nullable" : false,
-            "required" : false,
-            "array" : false,
-            "defaultValue" : "Portland",
-            "internalType" : "String"
-          } ]
-        }
-      }
-    } ],
-    "outputs" : [ {
-      "name" : "_default__doc",
-      "connection" : "ignition",
-      "type" : "inductive.ignition",
-      "qualifier" : {
-        "create" : false,
-        "tagAddress" : "[default]doc",
-        "breakupArrays" : false
+        "type" : "EmptyParameters"
       }
     }, {
-      "name" : "test",
-      "connection" : "osisoft",
-      "type" : "osisoft.afsdk",
+      "name" : "Motor001_PLC_Vibration",
+      "connection" : "opc",
+      "type" : "opc.tcp",
       "qualifier" : {
-        "type" : "asset",
-        "options" : {
-          "updateOption" : "Insert",
-          "database" : "HighByte",
-          "path" : "test",
-          "create" : true,
-          "name" : "testAsset"
-        },
-        "breakupArrays" : false
+        "namespaceIndex" : 2,
+        "identifierType" : "String",
+        "identifier" : "Motor001.PLC.Vibration",
+        "type" : "Tag",
+        "dataType" : "Real64"
+      },
+      "cacheLifetime" : {
+        "enabled" : false
+      },
+      "template" : {
+        "type" : "Off"
+      },
+      "parameters" : {
+        "type" : "EmptyParameters"
+      }
+    }, {
+      "name" : "get_motor001_service_info",
+      "connection" : "sql",
+      "type" : "jdbc.sqlserver",
+      "qualifier" : {
+        "type" : "query",
+        "query" : "SELECT * FROM [dbo].[lastservice] WHERE [dbo].[lastservice].[machineid] = 'motor001'",
+        "index" : {
+          "enabled" : false,
+          "indexName" : "",
+          "indexValue" : ""
+        }
+      },
+      "cacheLifetime" : {
+        "enabled" : false
+      },
+      "template" : {
+        "type" : "Off"
+      },
+      "parameters" : {
+        "type" : "EmptyParameters"
       }
     } ],
+    "outputs" : [ ],
     "modeling" : {
       "models" : [ {
-        "name" : "Crusher",
-        "tags" : [ ],
+        "name" : "motors",
+        "tags" : [ "starter_solution" ],
         "attributes" : [ {
           "attributeType" : "Internal",
-          "name" : "crushRate",
+          "name" : "motorId",
           "nullable" : false,
           "required" : false,
           "array" : false,
-          "internalType" : "Int32"
+          "internalType" : "Any"
         }, {
           "attributeType" : "Internal",
-          "name" : "feedRate",
+          "name" : "site",
           "nullable" : false,
           "required" : false,
           "array" : false,
-          "internalType" : "Int32"
+          "internalType" : "Any"
         }, {
           "attributeType" : "Internal",
-          "name" : "powerKW",
+          "name" : "area",
           "nullable" : false,
           "required" : false,
           "array" : false,
-          "internalType" : "Real64"
+          "internalType" : "Any"
         }, {
           "attributeType" : "Internal",
-          "name" : "rpm",
+          "name" : "line",
           "nullable" : false,
           "required" : false,
           "array" : false,
-          "internalType" : "Int32"
+          "internalType" : "Any"
         }, {
           "attributeType" : "Internal",
-          "name" : "status",
+          "name" : "amps",
           "nullable" : false,
           "required" : false,
           "array" : false,
-          "internalType" : "Boolean"
+          "internalType" : "Any"
         }, {
           "attributeType" : "Internal",
-          "name" : "temperatire",
+          "name" : "speed",
           "nullable" : false,
           "required" : false,
           "array" : false,
-          "internalType" : "Real64"
+          "internalType" : "Any"
         }, {
           "attributeType" : "Internal",
           "name" : "vibration",
           "nullable" : false,
           "required" : false,
           "array" : false,
-          "internalType" : "Real64"
+          "internalType" : "Any"
+        }, {
+          "attributeType" : "Internal",
+          "name" : "error",
+          "nullable" : false,
+          "required" : false,
+          "array" : false,
+          "internalType" : "Any"
+        }, {
+          "attributeType" : "Internal",
+          "name" : "lastServiceDate",
+          "nullable" : false,
+          "required" : false,
+          "array" : false,
+          "internalType" : "DateTime"
+        }, {
+          "attributeType" : "Internal",
+          "name" : "lastServiceNotes",
+          "nullable" : false,
+          "required" : false,
+          "array" : false,
+          "internalType" : "Any"
         } ]
       } ],
       "instances" : [ {
-        "name" : "crusherLine1",
-        "tags" : [ ],
-        "model" : "Crusher",
+        "name" : "motor001",
+        "tags" : [ "starter_solution" ],
+        "model" : "motors",
         "rootValueAs" : "Object",
         "template" : {
           "type" : "Off"
@@ -730,75 +298,75 @@
         "executeMode" : "V4",
         "initExpression" : "",
         "attributes" : [ {
-          "name" : "crushRate",
+          "name" : "motorId",
+          "expression" : {
+            "type" : "Reference",
+            "reference" : {
+              "type" : "Empty",
+              "name" : "",
+              "params" : { },
+              "path" : ""
+            }
+          },
+          "defaultValue" : "motor001"
+        }, {
+          "name" : "site",
+          "expression" : {
+            "type" : "Reference",
+            "reference" : {
+              "type" : "Empty",
+              "name" : "",
+              "params" : { },
+              "path" : ""
+            }
+          },
+          "defaultValue" : "Portland"
+        }, {
+          "name" : "area",
+          "expression" : {
+            "type" : "Reference",
+            "reference" : {
+              "type" : "Empty",
+              "name" : "",
+              "params" : { },
+              "path" : ""
+            }
+          },
+          "defaultValue" : "Area-1"
+        }, {
+          "name" : "line",
+          "expression" : {
+            "type" : "Reference",
+            "reference" : {
+              "type" : "Empty",
+              "name" : "",
+              "params" : { },
+              "path" : ""
+            }
+          },
+          "defaultValue" : "Line-1"
+        }, {
+          "name" : "amps",
           "expression" : {
             "type" : "Reference",
             "reference" : {
               "type" : "Input",
-              "name" : "FertilizerDemo_Line2",
+              "name" : "Motor001_PLC_Amps",
               "params" : { },
-              "path" : ".crusher.C2230_H1",
-              "connectionName" : "opcChangedName"
+              "path" : "",
+              "connectionName" : "opc"
             }
           }
         }, {
-          "name" : "feedRate",
+          "name" : "speed",
           "expression" : {
             "type" : "Reference",
             "reference" : {
               "type" : "Input",
-              "name" : "FertilizerDemo_Line2",
+              "name" : "Motor001_PLC_Speed",
               "params" : { },
-              "path" : ".crusher.F1776",
-              "connectionName" : "opcChangedName"
-            }
-          }
-        }, {
-          "name" : "powerKW",
-          "expression" : {
-            "type" : "Reference",
-            "reference" : {
-              "type" : "Input",
-              "name" : "FertilizerDemo_Line2",
-              "params" : { },
-              "path" : ".crusher.P2XUI",
-              "connectionName" : "opcChangedName"
-            }
-          }
-        }, {
-          "name" : "rpm",
-          "expression" : {
-            "type" : "Reference",
-            "reference" : {
-              "type" : "Input",
-              "name" : "FertilizerDemo_Line2",
-              "params" : { },
-              "path" : ".crusher.R178",
-              "connectionName" : "opcChangedName"
-            }
-          }
-        }, {
-          "name" : "status",
-          "expression" : {
-            "type" : "Reference",
-            "reference" : {
-              "type" : "Input",
-              "name" : "FertilizerDemo_Line2",
-              "params" : { },
-              "path" : ".crusher.S6",
-              "connectionName" : "opcChangedName"
-            }
-          }
-        }, {
-          "name" : "temperatire",
-          "expression" : {
-            "type" : "Reference",
-            "reference" : {
-              "type" : "Input",
-              "name" : "FertilizerDemo_Line2",
-              "params" : { },
-              "path" : ".crusher.TX_77_9",
-              "connectionName" : "opcChangedName"
+              "path" : "",
+              "connectionName" : "opc"
             }
           }
         }, {
@@ -807,206 +375,46 @@
             "type" : "Reference",
             "reference" : {
               "type" : "Input",
-              "name" : "FertilizerDemo_Line2",
+              "name" : "Motor001_PLC_Vibration",
               "params" : { },
-              "path" : ".crusher.HZ_13",
-              "connectionName" : "opcChangedName"
-            }
-          }
-        } ],
-        "parameters" : {
-          "type" : "EmptyParameters"
-        }
-      }, {
-        "name" : "crusherLine3",
-        "tags" : [ ],
-        "model" : "Crusher",
-        "rootValueAs" : "Object",
-        "template" : {
-          "type" : "Off"
-        },
-        "executeMode" : "V4",
-        "initExpression" : "",
-        "attributes" : [ {
-          "name" : "crushRate",
-          "expression" : {
-            "type" : "Reference",
-            "reference" : {
-              "type" : "Input",
-              "name" : "FertilizerDemo_Line2",
-              "params" : { },
-              "path" : ".some.other.spot.machx.C2700_H1",
-              "connectionName" : "opcChangedName"
+              "path" : "",
+              "connectionName" : "opc"
             }
           }
         }, {
-          "name" : "feedRate",
+          "name" : "error",
           "expression" : {
             "type" : "Reference",
             "reference" : {
               "type" : "Input",
-              "name" : "FertilizerDemo_Line2",
+              "name" : "Motor001_PLC_Error",
               "params" : { },
-              "path" : ".some.other.spot.machx.F1822",
-              "connectionName" : "opcChangedName"
+              "path" : "",
+              "connectionName" : "opc"
             }
           }
         }, {
-          "name" : "powerKW",
+          "name" : "lastServiceDate",
           "expression" : {
             "type" : "Reference",
             "reference" : {
               "type" : "Input",
-              "name" : "FertilizerDemo_Line2",
+              "name" : "get_motor001_service_info",
               "params" : { },
-              "path" : ".some.other.spot.machx.P2AAB",
-              "connectionName" : "opcChangedName"
+              "path" : "[0].lastservicedate",
+              "connectionName" : "sql"
             }
           }
         }, {
-          "name" : "rpm",
+          "name" : "lastServiceNotes",
           "expression" : {
             "type" : "Reference",
             "reference" : {
               "type" : "Input",
-              "name" : "FertilizerDemo_Line2",
+              "name" : "get_motor001_service_info",
               "params" : { },
-              "path" : ".some.other.spot.machx.R211",
-              "connectionName" : "opcChangedName"
-            }
-          }
-        }, {
-          "name" : "status",
-          "expression" : {
-            "type" : "Reference",
-            "reference" : {
-              "type" : "Input",
-              "name" : "FertilizerDemo_Line2",
-              "params" : { },
-              "path" : ".some.other.spot.machx.S11",
-              "connectionName" : "opcChangedName"
-            }
-          }
-        }, {
-          "name" : "temperatire",
-          "expression" : {
-            "type" : "Reference",
-            "reference" : {
-              "type" : "Input",
-              "name" : "FertilizerDemo_Line2",
-              "params" : { },
-              "path" : ".some.other.spot.machx.TX_44_1",
-              "connectionName" : "opcChangedName"
-            }
-          }
-        }, {
-          "name" : "vibration",
-          "expression" : {
-            "type" : "Reference",
-            "reference" : {
-              "type" : "Input",
-              "name" : "FertilizerDemo_Line2",
-              "params" : { },
-              "path" : ".some.other.spot.machx.HZ_12",
-              "connectionName" : "opcChangedName"
-            }
-          }
-        } ],
-        "parameters" : {
-          "type" : "EmptyParameters"
-        }
-      }, {
-        "name" : "crusherLine4",
-        "tags" : [ ],
-        "model" : "Crusher",
-        "rootValueAs" : "Object",
-        "template" : {
-          "type" : "Off"
-        },
-        "executeMode" : "V4",
-        "initExpression" : "",
-        "attributes" : [ {
-          "name" : "crushRate",
-          "expression" : {
-            "type" : "Reference",
-            "reference" : {
-              "type" : "Input",
-              "name" : "FertilizerDemo_Line2",
-              "params" : { },
-              "path" : ".site.area[\"crusher 2\"].C2992_H1",
-              "connectionName" : "opcChangedName"
-            }
-          }
-        }, {
-          "name" : "feedRate",
-          "expression" : {
-            "type" : "Reference",
-            "reference" : {
-              "type" : "Input",
-              "name" : "FertilizerDemo_Line2",
-              "params" : { },
-              "path" : ".site.area[\"crusher 2\"].F1821",
-              "connectionName" : "opcChangedName"
-            }
-          }
-        }, {
-          "name" : "powerKW",
-          "expression" : {
-            "type" : "Reference",
-            "reference" : {
-              "type" : "Input",
-              "name" : "FertilizerDemo_Line2",
-              "params" : { },
-              "path" : ".site.area[\"crusher 2\"].M44H_X",
-              "connectionName" : "opcChangedName"
-            }
-          }
-        }, {
-          "name" : "rpm",
-          "expression" : {
-            "type" : "Reference",
-            "reference" : {
-              "type" : "Input",
-              "name" : "FertilizerDemo_Line2",
-              "params" : { },
-              "path" : ".site.area[\"crusher 2\"].R210",
-              "connectionName" : "opcChangedName"
-            }
-          }
-        }, {
-          "name" : "status",
-          "expression" : {
-            "type" : "Reference",
-            "reference" : {
-              "type" : "Input",
-              "name" : "FertilizerDemo_Line2",
-              "params" : { },
-              "path" : ".site.area[\"crusher 2\"].S10",
-              "connectionName" : "opcChangedName"
-            }
-          }
-        }, {
-          "name" : "temperatire",
-          "expression" : {
-            "type" : "Reference",
-            "reference" : {
-              "type" : "Input",
-              "name" : "FertilizerDemo_Line2",
-              "params" : { },
-              "path" : ".site.area[\"crusher 2\"].TX_44_0",
-              "connectionName" : "opcChangedName"
-            }
-          }
-        }, {
-          "name" : "vibration",
-          "expression" : {
-            "type" : "Reference",
-            "reference" : {
-              "type" : "Input",
-              "name" : "FertilizerDemo_Line2",
-              "params" : { },
-              "path" : ".site.area[\"crusher 2\"].HZ_11",
-              "connectionName" : "opcChangedName"
+              "path" : "[0].Notes",
+              "connectionName" : "sql"
             }
           }
         } ],
@@ -1016,25 +424,11 @@
       } ]
     },
     "pipelines" : [ {
-      "name" : "getCurrentWeather",
-      "description" : "Call this to get the current weather. Pass in the city",
-      "groupAs" : "/mcpTools",
-      "tags" : [ "weatherMCP" ],
-      "inputStages" : [ "Read" ],
+      "name" : "motor001_to_mqtt",
+      "tags" : [ "starter_solution" ],
+      "inputStages" : [ "To_MQTT" ],
       "stages" : [ {
-        "name" : "Return",
-        "display" : {
-          "position" : {
-            "x" : 690,
-            "y" : 0
-          }
-        },
-        "config" : {
-          "type" : ".ReturnConfig"
-        },
-        "outputs" : [ ]
-      }, {
-        "name" : "Read",
+        "name" : "To_MQTT",
         "display" : {
           "position" : {
             "x" : 240,
@@ -1042,74 +436,25 @@
           }
         },
         "config" : {
-          "type" : ".ReadConfig",
+          "type" : ".DynamicWriteConfig",
           "failureOutputs" : [ ],
-          "reference" : {
-            "type" : "Input",
-            "name" : "currentWeather",
-            "params" : {
-              "city" : "{{event.value.city}}"
-            },
-            "path" : "",
-            "connectionName" : "weatherRESTAPI"
-          }
-        },
-        "outputs" : [ "Return" ]
-      } ],
-      "trackActivity" : false,
-      "triggers" : [ {
-        "name" : "APITrigger",
-        "display" : {
-          "position" : {
-            "x" : -450,
-            "y" : 0
-          }
-        },
-        "config" : {
-          "type" : ".TriggerApi",
-          "enabled" : true,
-          "parameters" : {
-            "type" : "inline",
-            "model" : {
-              "name" : "params",
-              "tags" : [ ],
-              "attributes" : [ {
-                "attributeType" : "Internal",
-                "name" : "city",
-                "nullable" : false,
-                "required" : false,
-                "array" : false,
-                "internalType" : "String"
-              } ]
-            }
-          }
-        }
-      } ],
-      "errorHandler" : {
-        "type" : "default"
-      }
-    }, {
-      "name" : "someOtherTool",
-      "description" : "You shouldn't be able to see this.",
-      "groupAs" : "/mcpTools",
-      "tags" : [ ],
-      "inputStages" : [ "Return" ],
-      "stages" : [ {
-        "name" : "Return",
-        "display" : {
-          "position" : {
-            "x" : 240,
-            "y" : 0
-          }
-        },
-        "config" : {
-          "type" : ".ReturnConfig"
+          "connectionReference" : "{{Connection.mqtt}}",
+          "qualifier" : {
+            "topic" : "{{event.value.site}}/{{event.value.area}}/{{event.value.line}}/assets/motors/{{event.value.motorId}} ",
+            "qos" : 0,
+            "namedRoot" : false,
+            "retained" : false,
+            "breakupArrays" : false,
+            "filterList" : [ "_name", "_model" ]
+          },
+          "qualifierExpression" : "",
+          "writeReturn" : "ignore"
         },
         "outputs" : [ ]
       } ],
       "trackActivity" : false,
       "triggers" : [ {
-        "name" : "APITrigger",
+        "name" : "FlowTrigger",
         "display" : {
           "position" : {
             "x" : -450,
@@ -1117,10 +462,25 @@
           }
         },
         "config" : {
-          "type" : ".TriggerApi",
-          "enabled" : true,
-          "parameters" : {
-            "type" : "EmptyParameters"
+          "type" : ".TriggerFlow",
+          "enabled" : false,
+          "flowEvaluation" : {
+            "type" : "Polled",
+            "interval" : {
+              "duration" : 1,
+              "units" : "Seconds"
+            },
+            "mode" : "Always",
+            "expression" : "",
+            "delay" : {
+              "duration" : 0,
+              "units" : "Seconds"
+            }
+          },
+          "inReferences" : [ "{{Instance.motor001}}" ],
+          "publishMode" : "All",
+          "template" : {
+            "type" : "Off"
           }
         }
       } ],
@@ -1129,7 +489,7 @@
       }
     } ],
     "tags" : [ {
-      "name" : "weatherMCP"
+      "name" : "starter_solution"
     } ],
     "functions" : [ ],
     "namespace" : [ ]

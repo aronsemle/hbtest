@@ -123,7 +123,7 @@
         }
       }
     }, {
-      "name" : "opc",
+      "name" : "opcChangedName",
       "uri" : "opc.tcp://host.docker.internal:49320",
       "tags" : [ ],
       "writes" : {
@@ -151,7 +151,8 @@
         "connectTimeoutSeconds" : 5,
         "requestTimeoutMS" : 5000,
         "maxItemsPerRead" : 512,
-        "maxItemsPerWrite" : 256
+        "maxItemsPerWrite" : 256,
+        "sessionName" : ""
       }
     }, {
       "name" : "openAI",
@@ -443,7 +444,7 @@
       }
     }, {
       "name" : "FertilizerDemo_Line1",
-      "connection" : "opc",
+      "connection" : "opcChangedName",
       "type" : "opc.tcp",
       "qualifier" : {
         "namespaceIndex" : 2,
@@ -470,7 +471,7 @@
       }
     }, {
       "name" : "FertilizerDemo_Line2",
-      "connection" : "opc",
+      "connection" : "opcChangedName",
       "type" : "opc.tcp",
       "qualifier" : {
         "namespaceIndex" : 2,
@@ -737,7 +738,7 @@
               "name" : "FertilizerDemo_Line2",
               "params" : { },
               "path" : ".crusher.C2230_H1",
-              "connectionName" : "opc"
+              "connectionName" : "opcChangedName"
             }
           }
         }, {
@@ -749,7 +750,7 @@
               "name" : "FertilizerDemo_Line2",
               "params" : { },
               "path" : ".crusher.F1776",
-              "connectionName" : "opc"
+              "connectionName" : "opcChangedName"
             }
           }
         }, {
@@ -761,7 +762,7 @@
               "name" : "FertilizerDemo_Line2",
               "params" : { },
               "path" : ".crusher.P2XUI",
-              "connectionName" : "opc"
+              "connectionName" : "opcChangedName"
             }
           }
         }, {
@@ -773,7 +774,7 @@
               "name" : "FertilizerDemo_Line2",
               "params" : { },
               "path" : ".crusher.R178",
-              "connectionName" : "opc"
+              "connectionName" : "opcChangedName"
             }
           }
         }, {
@@ -785,7 +786,7 @@
               "name" : "FertilizerDemo_Line2",
               "params" : { },
               "path" : ".crusher.S6",
-              "connectionName" : "opc"
+              "connectionName" : "opcChangedName"
             }
           }
         }, {
@@ -797,7 +798,7 @@
               "name" : "FertilizerDemo_Line2",
               "params" : { },
               "path" : ".crusher.TX_77_9",
-              "connectionName" : "opc"
+              "connectionName" : "opcChangedName"
             }
           }
         }, {
@@ -809,7 +810,7 @@
               "name" : "FertilizerDemo_Line2",
               "params" : { },
               "path" : ".crusher.HZ_13",
-              "connectionName" : "opc"
+              "connectionName" : "opcChangedName"
             }
           }
         } ],
@@ -835,7 +836,7 @@
               "name" : "FertilizerDemo_Line2",
               "params" : { },
               "path" : ".some.other.spot.machx.C2700_H1",
-              "connectionName" : "opc"
+              "connectionName" : "opcChangedName"
             }
           }
         }, {
@@ -847,7 +848,7 @@
               "name" : "FertilizerDemo_Line2",
               "params" : { },
               "path" : ".some.other.spot.machx.F1822",
-              "connectionName" : "opc"
+              "connectionName" : "opcChangedName"
             }
           }
         }, {
@@ -859,7 +860,7 @@
               "name" : "FertilizerDemo_Line2",
               "params" : { },
               "path" : ".some.other.spot.machx.P2AAB",
-              "connectionName" : "opc"
+              "connectionName" : "opcChangedName"
             }
           }
         }, {
@@ -871,7 +872,7 @@
               "name" : "FertilizerDemo_Line2",
               "params" : { },
               "path" : ".some.other.spot.machx.R211",
-              "connectionName" : "opc"
+              "connectionName" : "opcChangedName"
             }
           }
         }, {
@@ -883,7 +884,7 @@
               "name" : "FertilizerDemo_Line2",
               "params" : { },
               "path" : ".some.other.spot.machx.S11",
-              "connectionName" : "opc"
+              "connectionName" : "opcChangedName"
             }
           }
         }, {
@@ -895,7 +896,7 @@
               "name" : "FertilizerDemo_Line2",
               "params" : { },
               "path" : ".some.other.spot.machx.TX_44_1",
-              "connectionName" : "opc"
+              "connectionName" : "opcChangedName"
             }
           }
         }, {
@@ -907,7 +908,7 @@
               "name" : "FertilizerDemo_Line2",
               "params" : { },
               "path" : ".some.other.spot.machx.HZ_12",
-              "connectionName" : "opc"
+              "connectionName" : "opcChangedName"
             }
           }
         } ],
@@ -933,7 +934,7 @@
               "name" : "FertilizerDemo_Line2",
               "params" : { },
               "path" : ".site.area[\"crusher 2\"].C2992_H1",
-              "connectionName" : "opc"
+              "connectionName" : "opcChangedName"
             }
           }
         }, {
@@ -945,7 +946,7 @@
               "name" : "FertilizerDemo_Line2",
               "params" : { },
               "path" : ".site.area[\"crusher 2\"].F1821",
-              "connectionName" : "opc"
+              "connectionName" : "opcChangedName"
             }
           }
         }, {
@@ -957,7 +958,7 @@
               "name" : "FertilizerDemo_Line2",
               "params" : { },
               "path" : ".site.area[\"crusher 2\"].M44H_X",
-              "connectionName" : "opc"
+              "connectionName" : "opcChangedName"
             }
           }
         }, {
@@ -969,7 +970,7 @@
               "name" : "FertilizerDemo_Line2",
               "params" : { },
               "path" : ".site.area[\"crusher 2\"].R210",
-              "connectionName" : "opc"
+              "connectionName" : "opcChangedName"
             }
           }
         }, {
@@ -981,7 +982,7 @@
               "name" : "FertilizerDemo_Line2",
               "params" : { },
               "path" : ".site.area[\"crusher 2\"].S10",
-              "connectionName" : "opc"
+              "connectionName" : "opcChangedName"
             }
           }
         }, {
@@ -993,7 +994,7 @@
               "name" : "FertilizerDemo_Line2",
               "params" : { },
               "path" : ".site.area[\"crusher 2\"].TX_44_0",
-              "connectionName" : "opc"
+              "connectionName" : "opcChangedName"
             }
           }
         }, {
@@ -1005,7 +1006,7 @@
               "name" : "FertilizerDemo_Line2",
               "params" : { },
               "path" : ".site.area[\"crusher 2\"].HZ_11",
-              "connectionName" : "opc"
+              "connectionName" : "opcChangedName"
             }
           }
         } ],
@@ -1293,8 +1294,8 @@
         "allowExpressionImports" : false
       },
       "backup" : {
-        "mode" : "manual",
-        "cronSchedule" : "0 3 * * *",
+        "mode" : "scheduled",
+        "cronSchedule" : "* * * * *",
         "repo" : {
           "type" : "git",
           "name" : "HubBackup",

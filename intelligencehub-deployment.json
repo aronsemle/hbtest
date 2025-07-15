@@ -1,0 +1,1322 @@
+{
+  "productInfo" : {
+    "company" : "HighByte",
+    "product" : "IntelligenceHub",
+    "version" : "4.2.0",
+    "build" : "2025.6.27.332",
+    "stage" : "Release"
+  },
+  "license" : {
+    "signature" : "NUBpkA96bRcSrzLWT2w49U9cXmFDIpXSQtSFdvrsqvG0Oxc3FQQ2D/mM7VltDYtn3ZtcFalMkQA2u2n996KMud3jfYaMd6g/jT+k9x0W31JTyxrq26PcgQvKPGCrors5FyiJkN9hWVGocCQCMc1z0DAoMTfeAeLMm4xvcYwLecnvk+cB8+dDylSsLqOmqJ9ad1Wpibzb3XorLnNetFpLufuN0jOjkc2Vj7mTG8w3FMkBKkxP9Z/28RNWL1FDe26TFHk8Z7DePDkNaqteMcVjdx0njsBCBp6b5C4o5J6iDhjJJMSBamSSN/YMKXjzWpTScjKA+6P5YTY2Y/GMH4+MYQ==",
+    "license" : "{\"licenseVersion\":1,\"licenseNumber\":\"5357685661\",\"companyName\":\"HighByte\",\"startDate\":\"2023-01-01\",\"endDate\":\"2025-12-31\",\"entitlements\":[\"product_hb_trial\"],\"productVersion\":\"\"}"
+  },
+  "project" : {
+    "version" : 11,
+    "connections" : [ {
+      "name" : "awsBedrock",
+      "uri" : "aws.bedrock://awsBedrock",
+      "tags" : [ ],
+      "writes" : {
+        "flattenModeledValues" : false
+      },
+      "subscriptions" : { },
+      "storeForward" : {
+        "enabled" : false,
+        "maxEntries" : 100,
+        "waitOnFailureInterval" : {
+          "duration" : 1,
+          "units" : "Seconds"
+        }
+      },
+      "settings" : {
+        "accessKey" : "AKIAQTYS3DMLSVIOIIHR",
+        "password" : {
+          "type" : "Encrypted",
+          "value" : {
+            "keyId" : "gcqkahr8pj+67AXASPb5dw==",
+            "iv" : "2iuSLrleVIIUDVUKmEs7dw==",
+            "ciphertext" : "8HjuRlrMexbJ8u0q6pu8l1oh/obVJl4YJ3ByZ0Jb6bhNnPtYKhpaAbxIIrvcrlll"
+          }
+        },
+        "region" : "us-west-2"
+      }
+    }, {
+      "name" : "azureOpenAI",
+      "uri" : "azure.openai://azureOpenAI",
+      "tags" : [ ],
+      "writes" : {
+        "flattenModeledValues" : false
+      },
+      "subscriptions" : { },
+      "storeForward" : {
+        "enabled" : false,
+        "maxEntries" : 100,
+        "waitOnFailureInterval" : {
+          "duration" : 1,
+          "units" : "Seconds"
+        }
+      },
+      "settings" : {
+        "endpoint" : "https://highbyteopenaitest.openai.azure.com/",
+        "password" : {
+          "type" : "Encrypted",
+          "value" : {
+            "keyId" : "gcqkahr8pj+67AXASPb5dw==",
+            "iv" : "A+cNikGnvCef5zuPe6kkWQ==",
+            "ciphertext" : "Usg5i+cJomMTmRVKxnnXz5l3q4oxcvgMxkO0F5Z7TgSgODE1qxHwKWgZLgnn6XGscoq+t6XYOwUxilOvzFQsO/gZo180nsCS3rBuUiHeL2pWIODyXerGPJsEhkMzHZms"
+          }
+        }
+      }
+    }, {
+      "name" : "gemini",
+      "uri" : "google.gemini://gemini",
+      "tags" : [ ],
+      "writes" : {
+        "flattenModeledValues" : false
+      },
+      "subscriptions" : { },
+      "storeForward" : {
+        "enabled" : false,
+        "maxEntries" : 100,
+        "waitOnFailureInterval" : {
+          "duration" : 1,
+          "units" : "Seconds"
+        }
+      },
+      "settings" : {
+        "password" : {
+          "type" : "Encrypted",
+          "value" : {
+            "keyId" : "gcqkahr8pj+67AXASPb5dw==",
+            "iv" : "3Tdpd/Wh/xgYAeSzsVMKjg==",
+            "ciphertext" : "+iiIo/h7R8KxHPZaDCrWb9tjzPWTMfVrqTOOQ1t1W4kJJEsCiA8xrZcViewXxCob"
+          }
+        }
+      }
+    }, {
+      "name" : "ignition",
+      "uri" : "inductive.ignition://host.docker.internal:45280",
+      "tags" : [ ],
+      "writes" : {
+        "flattenModeledValues" : false
+      },
+      "subscriptions" : { },
+      "storeForward" : {
+        "enabled" : false,
+        "maxEntries" : 100,
+        "waitOnFailureInterval" : {
+          "duration" : 1,
+          "units" : "Seconds"
+        }
+      },
+      "settings" : {
+        "connectTimeoutSeconds" : 5,
+        "requestTimeoutMS" : 30000,
+        "compression" : "GZIP",
+        "password" : {
+          "type" : "Encrypted",
+          "value" : {
+            "keyId" : "gcqkahr8pj+67AXASPb5dw==",
+            "iv" : "MVf9NLnmrfUsZknfR3V+MQ==",
+            "ciphertext" : "rdD7SoD0MXJH2Yb9UZed3w=="
+          }
+        }
+      }
+    }, {
+      "name" : "opc",
+      "uri" : "opc.tcp://host.docker.internal:49320",
+      "tags" : [ ],
+      "writes" : {
+        "flattenModeledValues" : false
+      },
+      "subscriptions" : {
+        "subscriptionRate" : {
+          "duration" : 1,
+          "units" : "Seconds"
+        }
+      },
+      "storeForward" : {
+        "enabled" : false,
+        "maxEntries" : 100,
+        "waitOnFailureInterval" : {
+          "duration" : 1,
+          "units" : "Seconds"
+        }
+      },
+      "settings" : {
+        "security" : "None",
+        "authentication" : {
+          "type" : "Anonymous"
+        },
+        "connectTimeoutSeconds" : 5,
+        "requestTimeoutMS" : 5000,
+        "maxItemsPerRead" : 512,
+        "maxItemsPerWrite" : 256
+      }
+    }, {
+      "name" : "openAI",
+      "uri" : "openai.ai://openAI",
+      "tags" : [ ],
+      "writes" : {
+        "flattenModeledValues" : false
+      },
+      "subscriptions" : { },
+      "storeForward" : {
+        "enabled" : false,
+        "maxEntries" : 100,
+        "waitOnFailureInterval" : {
+          "duration" : 1,
+          "units" : "Seconds"
+        }
+      },
+      "settings" : {
+        "password" : {
+          "type" : "Encrypted",
+          "value" : {
+            "keyId" : "gcqkahr8pj+67AXASPb5dw==",
+            "iv" : "F+x5bqYnX6jaQkCsHI9Zfw==",
+            "ciphertext" : "8E+Q6uFCLNrU8rcDo+HWfKHHf79CSVF4lqjQIWwj0nkHu7GcF3lbBKZLEnJVxacSE/IeIV7RLDJ7rc8Nfg+hbz4hf/03VuI3N0UFUZ+/queg3Icly/5R1CdmBB+I2jSNJxgM2b/Op4I7JbClq0XET0KDsvELB7MY2PuWyrv9QEEo22yQFFHpA9yaJlab1tzM/ydOHSONyU0vGf+lOqowCfJNkkwBGPR0ToXydT1bqsQ="
+          }
+        }
+      }
+    }, {
+      "name" : "osisoft",
+      "uri" : "osisoft.afsdk://host.docker.internal:45290",
+      "tags" : [ ],
+      "writes" : {
+        "flattenModeledValues" : false
+      },
+      "subscriptions" : { },
+      "storeForward" : {
+        "enabled" : false,
+        "maxEntries" : 100,
+        "waitOnFailureInterval" : {
+          "duration" : 1,
+          "units" : "Seconds"
+        }
+      },
+      "settings" : {
+        "connectTimeoutSeconds" : 5,
+        "requestTimeoutMS" : 30000,
+        "compression" : "NONE",
+        "auth" : {
+          "type" : "credentials",
+          "username" : "osisoft",
+          "password" : {
+            "type" : "Encrypted",
+            "value" : {
+              "keyId" : "gcqkahr8pj+67AXASPb5dw==",
+              "iv" : "6jmfNYmiL6pBqie3wiuXvg==",
+              "ciphertext" : "LnmjpoYbfayLB8N09rnrzQ=="
+            }
+          }
+        },
+        "password" : {
+          "type" : "Encrypted",
+          "value" : {
+            "keyId" : "gcqkahr8pj+67AXASPb5dw==",
+            "iv" : "aObqHGx2T8Eh4f34QvKr7A==",
+            "ciphertext" : "EXe+Fk/HDwb6B3OPlDND3g=="
+          }
+        }
+      }
+    }, {
+      "name" : "rest",
+      "uri" : "rest.client://rest",
+      "tags" : [ ],
+      "writes" : {
+        "flattenModeledValues" : false
+      },
+      "subscriptions" : { },
+      "storeForward" : {
+        "enabled" : false,
+        "maxEntries" : 100,
+        "waitOnFailureInterval" : {
+          "duration" : 1,
+          "units" : "Seconds"
+        }
+      },
+      "settings" : {
+        "authentication" : {
+          "type" : "None"
+        },
+        "baseURL" : "http://yahoo.com"
+      }
+    }, {
+      "name" : "vf_mqtt",
+      "uri" : "mqtt://proveit.virtualfactory.online:1883",
+      "tags" : [ ],
+      "writes" : {
+        "flattenModeledValues" : false
+      },
+      "subscriptions" : { },
+      "storeForward" : {
+        "enabled" : false,
+        "maxEntries" : 100,
+        "waitOnFailureInterval" : {
+          "duration" : 1,
+          "units" : "Seconds"
+        }
+      },
+      "settings" : {
+        "connectionTimeoutSeconds" : 10,
+        "keepAliveSeconds" : 60,
+        "requestTimeoutMS" : 5000,
+        "maxInflight" : 1000,
+        "cleanSession" : true,
+        "username" : "highbyte",
+        "password" : {
+          "type" : "Encrypted",
+          "value" : {
+            "keyId" : "gcqkahr8pj+67AXASPb5dw==",
+            "iv" : "JnGzXl1oceXgxn2rhnT27Q==",
+            "ciphertext" : "tfK2C3up+oGT5Zj4do4gNQ=="
+          }
+        }
+      }
+    }, {
+      "name" : "vf_mysql",
+      "uri" : "jdbc.mysql://proveit.virtualfactory.online:3306",
+      "tags" : [ ],
+      "writes" : {
+        "flattenModeledValues" : false
+      },
+      "subscriptions" : { },
+      "storeForward" : {
+        "enabled" : false,
+        "maxEntries" : 100,
+        "waitOnFailureInterval" : {
+          "duration" : 1,
+          "units" : "Seconds"
+        }
+      },
+      "settings" : {
+        "strategy" : {
+          "type" : "default"
+        },
+        "database" : "mes_lite",
+        "username" : "proveitreadonly",
+        "password" : {
+          "type" : "Encrypted",
+          "value" : {
+            "keyId" : "gcqkahr8pj+67AXASPb5dw==",
+            "iv" : "E0EojbiqXpFEB7Lhk357xA==",
+            "ciphertext" : "8/SNiIY2HSeNP5wfIl3+xXTRtH77slukS64OOnm0cgE="
+          }
+        }
+      }
+    }, {
+      "name" : "vf_opc",
+      "uri" : "opc.tcp://proveit.virtualfactory.online:4840",
+      "tags" : [ ],
+      "writes" : {
+        "flattenModeledValues" : false
+      },
+      "subscriptions" : {
+        "subscriptionRate" : {
+          "duration" : 1,
+          "units" : "Seconds"
+        }
+      },
+      "storeForward" : {
+        "enabled" : false,
+        "maxEntries" : 100,
+        "waitOnFailureInterval" : {
+          "duration" : 1,
+          "units" : "Seconds"
+        }
+      },
+      "settings" : {
+        "security" : "None",
+        "authentication" : {
+          "type" : "Username_Basic256",
+          "username" : "highbyte",
+          "password" : {
+            "type" : "Encrypted",
+            "value" : {
+              "keyId" : "gcqkahr8pj+67AXASPb5dw==",
+              "iv" : "zBG6jl9YNu7SgT7xTvxCjw==",
+              "ciphertext" : "eLF9uKwmUSoFJ6daseDZ+Q=="
+            }
+          }
+        },
+        "connectTimeoutSeconds" : 5,
+        "requestTimeoutMS" : 5000,
+        "maxItemsPerRead" : 512,
+        "maxItemsPerWrite" : 256,
+        "sessionName" : ""
+      }
+    }, {
+      "name" : "weatherRESTAPI",
+      "uri" : "rest.client://weatherRESTAPI",
+      "tags" : [ ],
+      "writes" : {
+        "flattenModeledValues" : false
+      },
+      "subscriptions" : { },
+      "storeForward" : {
+        "enabled" : false,
+        "maxEntries" : 100,
+        "waitOnFailureInterval" : {
+          "duration" : 1,
+          "units" : "Seconds"
+        }
+      },
+      "settings" : {
+        "authentication" : {
+          "type" : "None"
+        },
+        "baseURL" : "http://api.weatherapi.com"
+      }
+    } ],
+    "conditions" : [ ],
+    "inputs" : [ {
+      "name" : "claude",
+      "connection" : "awsBedrock",
+      "type" : "aws.bedrock",
+      "qualifier" : {
+        "modelType" : "arn:aws:bedrock:us-west-2:042452327191:inference-profile/us.anthropic.claude-opus-4-20250514-v1:0",
+        "responseFormat" : "string",
+        "message" : "oh hey"
+      },
+      "cacheLifetime" : {
+        "enabled" : false
+      },
+      "template" : {
+        "type" : "Off"
+      },
+      "parameters" : {
+        "type" : "EmptyParameters"
+      }
+    }, {
+      "name" : "gpt4",
+      "connection" : "azureOpenAI",
+      "type" : "azure.openai",
+      "qualifier" : {
+        "responseFormat" : "string",
+        "modelType" : "gpt-4",
+        "message" : "oh hey"
+      },
+      "cacheLifetime" : {
+        "enabled" : false
+      },
+      "template" : {
+        "type" : "Off"
+      },
+      "parameters" : {
+        "type" : "EmptyParameters"
+      }
+    }, {
+      "name" : "flash35",
+      "connection" : "gemini",
+      "type" : "google.gemini",
+      "qualifier" : {
+        "modelType" : "gemini-2.5-flash",
+        "responseFormat" : "string",
+        "message" : "oh hey"
+      },
+      "cacheLifetime" : {
+        "enabled" : false
+      },
+      "template" : {
+        "type" : "Off"
+      },
+      "parameters" : {
+        "type" : "EmptyParameters"
+      }
+    }, {
+      "name" : "_default__doc",
+      "connection" : "ignition",
+      "type" : "inductive.ignition",
+      "qualifier" : {
+        "type" : "path",
+        "tagAddress" : "[default]doc"
+      },
+      "cacheLifetime" : {
+        "enabled" : false
+      },
+      "template" : {
+        "type" : "Off"
+      },
+      "parameters" : {
+        "type" : "EmptyParameters"
+      }
+    }, {
+      "name" : "FertilizerDemo_Line1",
+      "connection" : "opc",
+      "type" : "opc.tcp",
+      "qualifier" : {
+        "namespaceIndex" : 2,
+        "identifierType" : "String",
+        "identifier" : "FertilizerDemo.Line1",
+        "dataType" : "Auto",
+        "type" : "Branch",
+        "maxDepth" : 5,
+        "cacheInterval" : {
+          "duration" : 1,
+          "units" : "Hours"
+        },
+        "ignoreBadQuality" : false,
+        "browseVariableNodes" : false
+      },
+      "cacheLifetime" : {
+        "enabled" : false
+      },
+      "template" : {
+        "type" : "Off"
+      },
+      "parameters" : {
+        "type" : "EmptyParameters"
+      }
+    }, {
+      "name" : "FertilizerDemo_Line2",
+      "connection" : "opc",
+      "type" : "opc.tcp",
+      "qualifier" : {
+        "namespaceIndex" : 2,
+        "identifierType" : "String",
+        "identifier" : "FertilizerDemo.Line2",
+        "dataType" : "Auto",
+        "type" : "Branch",
+        "maxDepth" : 4,
+        "cacheInterval" : {
+          "duration" : 1,
+          "units" : "Hours"
+        },
+        "ignoreBadQuality" : false,
+        "browseVariableNodes" : false
+      },
+      "cacheLifetime" : {
+        "enabled" : false
+      },
+      "template" : {
+        "type" : "Off"
+      },
+      "parameters" : {
+        "type" : "EmptyParameters"
+      }
+    }, {
+      "name" : "gpt4",
+      "connection" : "openAI",
+      "type" : "openai.ai",
+      "qualifier" : {
+        "modelType" : "gpt-4",
+        "responseFormat" : "string",
+        "message" : "hello world"
+      },
+      "cacheLifetime" : {
+        "enabled" : false
+      },
+      "template" : {
+        "type" : "Off"
+      },
+      "parameters" : {
+        "type" : "EmptyParameters"
+      }
+    }, {
+      "name" : "test",
+      "connection" : "osisoft",
+      "type" : "osisoft.afsdk",
+      "qualifier" : {
+        "type" : "point",
+        "options" : {
+          "get" : "currentValue",
+          "includeMetaData" : true,
+          "includeChildren" : true,
+          "useReference" : false,
+          "points" : [ "test.testAsset.a" ],
+          "query" : "",
+          "index" : false,
+          "indexWindow" : "",
+          "additionalMetadataProperties" : [ "step", "shutdown", "displaydigits", "compdev", "archiving", "Excdev" ]
+        }
+      },
+      "cacheLifetime" : {
+        "enabled" : false
+      },
+      "template" : {
+        "type" : "Off"
+      },
+      "parameters" : {
+        "type" : "EmptyParameters"
+      }
+    }, {
+      "name" : "Lam",
+      "connection" : "vf_mqtt",
+      "type" : "mqtt",
+      "qualifier" : {
+        "inputType" : "Branch",
+        "payloadType" : "json",
+        "qos" : 0,
+        "topic" : "Enterprise/Dallas/Lam/#",
+        "includeTopic" : false
+      },
+      "cacheLifetime" : {
+        "enabled" : false
+      },
+      "template" : {
+        "type" : "Off"
+      },
+      "parameters" : {
+        "type" : "EmptyParameters"
+      }
+    }, {
+      "name" : "cell",
+      "connection" : "vf_mysql",
+      "type" : "jdbc.mysql",
+      "qualifier" : {
+        "query" : "select * from `schedule`"
+      },
+      "cacheLifetime" : {
+        "enabled" : false
+      },
+      "template" : {
+        "type" : "Off"
+      },
+      "parameters" : {
+        "type" : "EmptyParameters"
+      }
+    }, {
+      "name" : "Enterprise_Dallas_Lam",
+      "connection" : "vf_opc",
+      "type" : "opc.tcp",
+      "qualifier" : {
+        "namespaceIndex" : 2,
+        "identifierType" : "Numeric",
+        "identifier" : "17",
+        "dataType" : "Auto",
+        "type" : "Branch",
+        "maxDepth" : 1,
+        "cacheInterval" : {
+          "duration" : 1,
+          "units" : "Hours"
+        },
+        "ignoreBadQuality" : false,
+        "browseVariableNodes" : false
+      },
+      "cacheLifetime" : {
+        "enabled" : false
+      },
+      "template" : {
+        "type" : "Off"
+      },
+      "parameters" : {
+        "type" : "EmptyParameters"
+      }
+    }, {
+      "name" : "currentWeather",
+      "connection" : "weatherRESTAPI",
+      "type" : "rest.client",
+      "qualifier" : {
+        "acceptType" : "*/*",
+        "method" : "GET",
+        "contentType" : "application/json",
+        "includeMetadata" : false,
+        "endpointURL" : "/v1/current.json?key=c559e6e3078848cf9b5134317250807 &q={{this.city}}&aqi=no",
+        "isFile" : false
+      },
+      "cacheLifetime" : {
+        "enabled" : false
+      },
+      "template" : {
+        "type" : "Off"
+      },
+      "parameters" : {
+        "type" : "inline",
+        "model" : {
+          "name" : "params",
+          "tags" : [ ],
+          "attributes" : [ {
+            "attributeType" : "Internal",
+            "name" : "city",
+            "nullable" : false,
+            "required" : false,
+            "array" : false,
+            "defaultValue" : "Portland",
+            "internalType" : "String"
+          } ]
+        }
+      }
+    } ],
+    "outputs" : [ {
+      "name" : "_default__doc",
+      "connection" : "ignition",
+      "type" : "inductive.ignition",
+      "qualifier" : {
+        "create" : false,
+        "tagAddress" : "[default]doc",
+        "breakupArrays" : false
+      }
+    }, {
+      "name" : "test",
+      "connection" : "osisoft",
+      "type" : "osisoft.afsdk",
+      "qualifier" : {
+        "type" : "asset",
+        "options" : {
+          "updateOption" : "Insert",
+          "database" : "HighByte",
+          "path" : "test",
+          "create" : true,
+          "name" : "testAsset"
+        },
+        "breakupArrays" : false
+      }
+    } ],
+    "modeling" : {
+      "models" : [ {
+        "name" : "Crusher",
+        "tags" : [ ],
+        "attributes" : [ {
+          "attributeType" : "Internal",
+          "name" : "crushRate",
+          "nullable" : false,
+          "required" : false,
+          "array" : false,
+          "internalType" : "Int32"
+        }, {
+          "attributeType" : "Internal",
+          "name" : "feedRate",
+          "nullable" : false,
+          "required" : false,
+          "array" : false,
+          "internalType" : "Int32"
+        }, {
+          "attributeType" : "Internal",
+          "name" : "powerKW",
+          "nullable" : false,
+          "required" : false,
+          "array" : false,
+          "internalType" : "Real64"
+        }, {
+          "attributeType" : "Internal",
+          "name" : "rpm",
+          "nullable" : false,
+          "required" : false,
+          "array" : false,
+          "internalType" : "Int32"
+        }, {
+          "attributeType" : "Internal",
+          "name" : "status",
+          "nullable" : false,
+          "required" : false,
+          "array" : false,
+          "internalType" : "Boolean"
+        }, {
+          "attributeType" : "Internal",
+          "name" : "temperatire",
+          "nullable" : false,
+          "required" : false,
+          "array" : false,
+          "internalType" : "Real64"
+        }, {
+          "attributeType" : "Internal",
+          "name" : "vibration",
+          "nullable" : false,
+          "required" : false,
+          "array" : false,
+          "internalType" : "Real64"
+        } ]
+      } ],
+      "instances" : [ {
+        "name" : "crusherLine1",
+        "tags" : [ ],
+        "model" : "Crusher",
+        "rootValueAs" : "Object",
+        "template" : {
+          "type" : "Off"
+        },
+        "executeMode" : "V4",
+        "initExpression" : "",
+        "attributes" : [ {
+          "name" : "crushRate",
+          "expression" : {
+            "type" : "Reference",
+            "reference" : {
+              "type" : "Input",
+              "name" : "FertilizerDemo_Line2",
+              "params" : { },
+              "path" : ".crusher.C2230_H1",
+              "connectionName" : "opc"
+            }
+          }
+        }, {
+          "name" : "feedRate",
+          "expression" : {
+            "type" : "Reference",
+            "reference" : {
+              "type" : "Input",
+              "name" : "FertilizerDemo_Line2",
+              "params" : { },
+              "path" : ".crusher.F1776",
+              "connectionName" : "opc"
+            }
+          }
+        }, {
+          "name" : "powerKW",
+          "expression" : {
+            "type" : "Reference",
+            "reference" : {
+              "type" : "Input",
+              "name" : "FertilizerDemo_Line2",
+              "params" : { },
+              "path" : ".crusher.P2XUI",
+              "connectionName" : "opc"
+            }
+          }
+        }, {
+          "name" : "rpm",
+          "expression" : {
+            "type" : "Reference",
+            "reference" : {
+              "type" : "Input",
+              "name" : "FertilizerDemo_Line2",
+              "params" : { },
+              "path" : ".crusher.R178",
+              "connectionName" : "opc"
+            }
+          }
+        }, {
+          "name" : "status",
+          "expression" : {
+            "type" : "Reference",
+            "reference" : {
+              "type" : "Input",
+              "name" : "FertilizerDemo_Line2",
+              "params" : { },
+              "path" : ".crusher.S6",
+              "connectionName" : "opc"
+            }
+          }
+        }, {
+          "name" : "temperatire",
+          "expression" : {
+            "type" : "Reference",
+            "reference" : {
+              "type" : "Input",
+              "name" : "FertilizerDemo_Line2",
+              "params" : { },
+              "path" : ".crusher.TX_77_9",
+              "connectionName" : "opc"
+            }
+          }
+        }, {
+          "name" : "vibration",
+          "expression" : {
+            "type" : "Reference",
+            "reference" : {
+              "type" : "Input",
+              "name" : "FertilizerDemo_Line2",
+              "params" : { },
+              "path" : ".crusher.HZ_13",
+              "connectionName" : "opc"
+            }
+          }
+        } ],
+        "parameters" : {
+          "type" : "EmptyParameters"
+        }
+      }, {
+        "name" : "crusherLine3",
+        "tags" : [ ],
+        "model" : "Crusher",
+        "rootValueAs" : "Object",
+        "template" : {
+          "type" : "Off"
+        },
+        "executeMode" : "V4",
+        "initExpression" : "",
+        "attributes" : [ {
+          "name" : "crushRate",
+          "expression" : {
+            "type" : "Reference",
+            "reference" : {
+              "type" : "Input",
+              "name" : "FertilizerDemo_Line2",
+              "params" : { },
+              "path" : ".some.other.spot.machx.C2700_H1",
+              "connectionName" : "opc"
+            }
+          }
+        }, {
+          "name" : "feedRate",
+          "expression" : {
+            "type" : "Reference",
+            "reference" : {
+              "type" : "Input",
+              "name" : "FertilizerDemo_Line2",
+              "params" : { },
+              "path" : ".some.other.spot.machx.F1822",
+              "connectionName" : "opc"
+            }
+          }
+        }, {
+          "name" : "powerKW",
+          "expression" : {
+            "type" : "Reference",
+            "reference" : {
+              "type" : "Input",
+              "name" : "FertilizerDemo_Line2",
+              "params" : { },
+              "path" : ".some.other.spot.machx.P2AAB",
+              "connectionName" : "opc"
+            }
+          }
+        }, {
+          "name" : "rpm",
+          "expression" : {
+            "type" : "Reference",
+            "reference" : {
+              "type" : "Input",
+              "name" : "FertilizerDemo_Line2",
+              "params" : { },
+              "path" : ".some.other.spot.machx.R211",
+              "connectionName" : "opc"
+            }
+          }
+        }, {
+          "name" : "status",
+          "expression" : {
+            "type" : "Reference",
+            "reference" : {
+              "type" : "Input",
+              "name" : "FertilizerDemo_Line2",
+              "params" : { },
+              "path" : ".some.other.spot.machx.S11",
+              "connectionName" : "opc"
+            }
+          }
+        }, {
+          "name" : "temperatire",
+          "expression" : {
+            "type" : "Reference",
+            "reference" : {
+              "type" : "Input",
+              "name" : "FertilizerDemo_Line2",
+              "params" : { },
+              "path" : ".some.other.spot.machx.TX_44_1",
+              "connectionName" : "opc"
+            }
+          }
+        }, {
+          "name" : "vibration",
+          "expression" : {
+            "type" : "Reference",
+            "reference" : {
+              "type" : "Input",
+              "name" : "FertilizerDemo_Line2",
+              "params" : { },
+              "path" : ".some.other.spot.machx.HZ_12",
+              "connectionName" : "opc"
+            }
+          }
+        } ],
+        "parameters" : {
+          "type" : "EmptyParameters"
+        }
+      }, {
+        "name" : "crusherLine4",
+        "tags" : [ ],
+        "model" : "Crusher",
+        "rootValueAs" : "Object",
+        "template" : {
+          "type" : "Off"
+        },
+        "executeMode" : "V4",
+        "initExpression" : "",
+        "attributes" : [ {
+          "name" : "crushRate",
+          "expression" : {
+            "type" : "Reference",
+            "reference" : {
+              "type" : "Input",
+              "name" : "FertilizerDemo_Line2",
+              "params" : { },
+              "path" : ".site.area[\"crusher 2\"].C2992_H1",
+              "connectionName" : "opc"
+            }
+          }
+        }, {
+          "name" : "feedRate",
+          "expression" : {
+            "type" : "Reference",
+            "reference" : {
+              "type" : "Input",
+              "name" : "FertilizerDemo_Line2",
+              "params" : { },
+              "path" : ".site.area[\"crusher 2\"].F1821",
+              "connectionName" : "opc"
+            }
+          }
+        }, {
+          "name" : "powerKW",
+          "expression" : {
+            "type" : "Reference",
+            "reference" : {
+              "type" : "Input",
+              "name" : "FertilizerDemo_Line2",
+              "params" : { },
+              "path" : ".site.area[\"crusher 2\"].M44H_X",
+              "connectionName" : "opc"
+            }
+          }
+        }, {
+          "name" : "rpm",
+          "expression" : {
+            "type" : "Reference",
+            "reference" : {
+              "type" : "Input",
+              "name" : "FertilizerDemo_Line2",
+              "params" : { },
+              "path" : ".site.area[\"crusher 2\"].R210",
+              "connectionName" : "opc"
+            }
+          }
+        }, {
+          "name" : "status",
+          "expression" : {
+            "type" : "Reference",
+            "reference" : {
+              "type" : "Input",
+              "name" : "FertilizerDemo_Line2",
+              "params" : { },
+              "path" : ".site.area[\"crusher 2\"].S10",
+              "connectionName" : "opc"
+            }
+          }
+        }, {
+          "name" : "temperatire",
+          "expression" : {
+            "type" : "Reference",
+            "reference" : {
+              "type" : "Input",
+              "name" : "FertilizerDemo_Line2",
+              "params" : { },
+              "path" : ".site.area[\"crusher 2\"].TX_44_0",
+              "connectionName" : "opc"
+            }
+          }
+        }, {
+          "name" : "vibration",
+          "expression" : {
+            "type" : "Reference",
+            "reference" : {
+              "type" : "Input",
+              "name" : "FertilizerDemo_Line2",
+              "params" : { },
+              "path" : ".site.area[\"crusher 2\"].HZ_11",
+              "connectionName" : "opc"
+            }
+          }
+        } ],
+        "parameters" : {
+          "type" : "EmptyParameters"
+        }
+      } ]
+    },
+    "pipelines" : [ {
+      "name" : "getCurrentWeather",
+      "description" : "Call this to get the current weather. Pass in the city",
+      "groupAs" : "/mcpTools",
+      "tags" : [ "weatherMCP" ],
+      "inputStages" : [ "Read" ],
+      "stages" : [ {
+        "name" : "Return",
+        "display" : {
+          "position" : {
+            "x" : 690,
+            "y" : 0
+          }
+        },
+        "config" : {
+          "type" : ".ReturnConfig"
+        },
+        "outputs" : [ ]
+      }, {
+        "name" : "Read",
+        "display" : {
+          "position" : {
+            "x" : 240,
+            "y" : 0
+          }
+        },
+        "config" : {
+          "type" : ".ReadConfig",
+          "failureOutputs" : [ ],
+          "reference" : {
+            "type" : "Input",
+            "name" : "currentWeather",
+            "params" : {
+              "city" : "{{event.value.city}}"
+            },
+            "path" : "",
+            "connectionName" : "weatherRESTAPI"
+          }
+        },
+        "outputs" : [ "Return" ]
+      } ],
+      "trackActivity" : false,
+      "triggers" : [ {
+        "name" : "APITrigger",
+        "display" : {
+          "position" : {
+            "x" : -450,
+            "y" : 0
+          }
+        },
+        "config" : {
+          "type" : ".TriggerApi",
+          "enabled" : true,
+          "parameters" : {
+            "type" : "inline",
+            "model" : {
+              "name" : "params",
+              "tags" : [ ],
+              "attributes" : [ {
+                "attributeType" : "Internal",
+                "name" : "city",
+                "nullable" : false,
+                "required" : false,
+                "array" : false,
+                "internalType" : "String"
+              } ]
+            }
+          }
+        }
+      } ],
+      "errorHandler" : {
+        "type" : "default"
+      }
+    }, {
+      "name" : "someOtherTool",
+      "description" : "You shouldn't be able to see this.",
+      "groupAs" : "/mcpTools",
+      "tags" : [ ],
+      "inputStages" : [ "Return" ],
+      "stages" : [ {
+        "name" : "Return",
+        "display" : {
+          "position" : {
+            "x" : 240,
+            "y" : 0
+          }
+        },
+        "config" : {
+          "type" : ".ReturnConfig"
+        },
+        "outputs" : [ ]
+      } ],
+      "trackActivity" : false,
+      "triggers" : [ {
+        "name" : "APITrigger",
+        "display" : {
+          "position" : {
+            "x" : -450,
+            "y" : 0
+          }
+        },
+        "config" : {
+          "type" : ".TriggerApi",
+          "enabled" : true,
+          "parameters" : {
+            "type" : "EmptyParameters"
+          }
+        }
+      } ],
+      "errorHandler" : {
+        "type" : "default"
+      }
+    } ],
+    "tags" : [ {
+      "name" : "weatherMCP"
+    } ],
+    "functions" : [ ],
+    "namespace" : [ ]
+  },
+  "network" : {
+    "version" : 0,
+    "groups" : [ ],
+    "hubs" : [ ]
+  },
+  "accessControl" : {
+    "apiKeys" : [ {
+      "friendlyName" : "test",
+      "expiration" : 1782604799000,
+      "version" : 1,
+      "algorithm" : "SHA-256",
+      "user" : "administrator",
+      "hash" : "84h+93lpC6xH/rd7RD8rfOw5ppO5DFJX9fawv0lfDXI="
+    }, {
+      "friendlyName" : "mcp",
+      "expiration" : 1783555199000,
+      "version" : 1,
+      "algorithm" : "SHA-256",
+      "user" : "weatherMCP",
+      "hash" : "yjzp0/uue2PIAwoUr0CGkjYF6P0aMSfISNvryv2H9hI="
+    }, {
+      "friendlyName" : "mcp",
+      "expiration" : 1783555199000,
+      "version" : 1,
+      "algorithm" : "SHA-256",
+      "user" : "administrator",
+      "hash" : "YqsUlxncg0IydFtcDIcDjQr4jlWr1QLHOkxQn1PHnR8="
+    } ],
+    "version" : 0,
+    "roles" : [ {
+      "name" : "admin",
+      "policyVersion" : 1,
+      "claims" : [ {
+        "resources" : [ "*" ],
+        "actions" : [ "*" ]
+      } ]
+    }, {
+      "name" : "default",
+      "policyVersion" : 1,
+      "claims" : [ {
+        "resources" : [ "*" ],
+        "actions" : [ "read" ]
+      }, {
+        "resources" : [ "connection", "instance", "pipeline" ],
+        "actions" : [ "*" ]
+      } ]
+    } ],
+    "users" : [ {
+      "name" : "administrator",
+      "credentials" : {
+        "salt" : "ZgZQC9pG/WC90SHrzpkNJw==",
+        "hashedPassword" : "pAWSP6PENhwjNq+fUBPbJXSYtrMGRWmYT23ZZyrHas/TVcShCBQ2iuoj4Qac2L0x69bHn6MOXR4QtLWY8opvHA=="
+      },
+      "policyVersion" : 1,
+      "roles" : [ "admin" ],
+      "claims" : [ ]
+    }, {
+      "name" : "weatherMCP",
+      "credentials" : {
+        "salt" : "YR+MvOt8TnTdhQmnhg1zqg==",
+        "hashedPassword" : "Rv+OuG4/hGf8/mzqfAR8KWg3SNGCCgVSUe8GD8tPCC0J7SZHWtPj+MB8Rny39OKzvfEpFbugWZvnbBg3gesTOg=="
+      },
+      "policyVersion" : 1,
+      "roles" : [ "default" ],
+      "claims" : [ {
+        "name" : "weatherMCP",
+        "resources" : [ "*" ],
+        "actions" : [ "*" ],
+        "scope" : {
+          "contains" : {
+            "tags" : [ "weatherMCP" ]
+          }
+        }
+      } ]
+    } ]
+  },
+  "system" : {
+    "version" : 0,
+    "variables" : [ ],
+    "secrets" : [ ],
+    "certificates" : [ {
+      "alias" : "app-certificate-private-key",
+      "chain" : "MIIEQDCCAyigAwIBAgIIK7tqmGB5xk0wDQYJKoZIhvcNAQELBQAwTzEuMCwGA1UEAwwlSGlnaEJ5dGUvSW50ZWxsaWdlbmNlSHViQGU5YzE5NTA1MjQyMzEQMA4GA1UECgwHVW5rbm93bjELMAkGA1UEBhMCVVMwHhcNMjUwNjI3MTg0NjAzWhcNMzAwNjI2MTg0NjAzWjBPMS4wLAYDVQQDDCVIaWdoQnl0ZS9JbnRlbGxpZ2VuY2VIdWJAZTljMTk1MDUyNDIzMRAwDgYDVQQKDAdVbmtub3duMQswCQYDVQQGEwJVUzCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAL/Sy4a6dD28mcbpL+H/2bLD3PImW2EWa7JxX+waUwJgPIlmjKsVbAcGuFIOKa9E4J6D48Izy58mruGVIMbb6kXDQDlT902LuiIaKirGNK5F/v/mvQVSmjncmLRTcgWsyyhh//WvxhIkEbJUUXOaKsBHK47RrcH4C84trNdmtGa053VvAc51fLJ8xFuXLBgBmTigPooRk7H68/4nVqBxE6JRB5Br6myWJaRWz7yHVkTgG9fjfkoZQlVPBwXCtuw/pNJwSp8tx9o6jB7xwXcKMrRTBRBaovBkbxstVl+nw3szHx7MamULpLuqDiqY6HelQuf0p+jwcOqYtADES9iEfGUCAwEAAaOCAR4wggEaMEIGA1UdEQQ7MDmGKXVybjplOWMxOTUwNTI0MjM6SGlnaEJ5dGU6SW50ZWxsaWdlbmNlSHViggxlOWMxOTUwNTI0MjMwCwYDVR0PBAQDAgL0MB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAJBgNVHRMEAjAAMB0GA1UdDgQWBBRmdIDLviv1/Ui4R1bqtjJEG+TbDjB+BgNVHSMEdzB1gBRmdIDLviv1/Ui4R1bqtjJEG+TbDqFTpFEwTzEuMCwGA1UEAwwlSGlnaEJ5dGUvSW50ZWxsaWdlbmNlSHViQGU5YzE5NTA1MjQyMzEQMA4GA1UECgwHVW5rbm93bjELMAkGA1UEBhMCVVOCCCu7aphgecZNMA0GCSqGSIb3DQEBCwUAA4IBAQBvUDpLqCCaK1FlTV8HEfdrMVrUdc/uUoX956jWkcE1eTSU6rDMk3+swNwiRdzd3+gtBVeElEYSGtENTvjSfCqZwNNnSp4GL7zLJ6Si9shHpRV6Z33bECEPfD494UBtLyKH5iTMPG94XdrMjivrhGKUQUQ4MnOE9hYFcdqCarp39Dw4O/3/qo/uoZbIWfjmmUuO5ZLgIoItJiKiCRyY5aqatC6iMCsMrg7rmnYjGZgmI1UItuIUDDbFdOEE4uSVg7M4UMgYyqoA0Hu6kw7ZukqnHQtVeMv817BUQbLvr1ne9cIZRRoNJVPIXOBHDQBJ0hR2Wyx26Uj9KgUev7qiuH/V",
+      "encryptKey" : {
+        "type" : "Encrypted",
+        "value" : {
+          "keyId" : "gcqkahr8pj+67AXASPb5dw==",
+          "iv" : "HM2UiRQvgd7MfsZsgtiBZA==",
+          "ciphertext" : "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"
+        }
+      }
+    } ],
+    "settings" : {
+      "version" : 0,
+      "directories" : { },
+      "api" : {
+        "sessionTimeout" : {
+          "duration" : 8,
+          "units" : "Hours"
+        }
+      },
+      "configuration" : {
+        "scheme" : "http",
+        "schemeCertificate" : "ssl-certificate-private-key",
+        "port" : 45245,
+        "centralConfig" : false,
+        "autoSaveIntervalSeconds" : 60,
+        "backupCopies" : 50
+      },
+      "hbMqttBroker" : {
+        "enabled" : true,
+        "allowAnonymous" : true,
+        "endpoints" : [ {
+          "hostname" : "0.0.0.0",
+          "port" : 1885,
+          "useSSL" : false,
+          "certificateKeyAlias" : "",
+          "protocol" : "mqtt.tcp"
+        }, {
+          "hostname" : "0.0.0.0",
+          "port" : 1886,
+          "useSSL" : false,
+          "certificateKeyAlias" : "",
+          "protocol" : "mqtt.ws"
+        } ]
+      },
+      "restDataServer" : {
+        "enabled" : true,
+        "hostname" : "0.0.0.0",
+        "port" : 8885,
+        "useHttps" : false,
+        "schemeCertificate" : "",
+        "allowAnonymous" : false,
+        "authenticationModes" : [ "API_KEY" ],
+        "mcpServerEnabled" : true,
+        "mcpServerPort" : 45345
+      },
+      "log" : {
+        "debugLogging" : "NONE",
+        "fileSizeMB" : 100,
+        "logAuditEvents" : false
+      },
+      "redundancy" : {
+        "backup" : {
+          "enabled" : false,
+          "primary" : {
+            "uri" : "",
+            "pingIntervalSeconds" : 10,
+            "pingAttempts" : 1
+          }
+        }
+      },
+      "expressionEngine" : {
+        "allowExpressionEval" : false,
+        "allowEnvironmentVariables" : false,
+        "expressionEngineTimeoutSeconds" : 10,
+        "hubBindingName" : "hub",
+        "allowExpressionImports" : false
+      },
+      "backup" : {
+        "mode" : "manual",
+        "cronSchedule" : "0 3 * * *",
+        "repo" : {
+          "type" : "git",
+          "name" : "HubBackup",
+          "uri" : "https://github.com/aronsemle/hbtest.git",
+          "author" : "HighByte IntelligenceHub",
+          "email" : "<>",
+          "auth" : {
+            "type" : "pass",
+            "username" : "aronsemle",
+            "password" : {
+              "type" : "Encrypted",
+              "value" : {
+                "keyId" : "gcqkahr8pj+67AXASPb5dw==",
+                "iv" : "BRPMMiT8P2ySdneJX0IgEQ==",
+                "ciphertext" : "KB3KgKsB+if8IG6UmBzm9t7knf7RY95JZu3pDleLRs+W72BNEMZjt6FodSohEjFSAR6+QZvrLTxRFALih75/QQqeY/263qcpXf1bNTATeYpaR+BgXdMHjYrVT0OfprcH"
+              }
+            }
+          }
+        },
+        "branch" : "main",
+        "deployFile" : "intelligencehub-deployment.json"
+      }
+    }
+  }
+}

@@ -304,7 +304,15 @@
   "system" : {
     "version" : 0,
     "variables" : [ ],
-    "secrets" : [ ],
+    "secrets" : [ {
+      "type" : "Encrypted",
+      "name" : "gitpass",
+      "value" : {
+        "keyId" : "h6JwJ9FAZL/BKaNnHStpNg==",
+        "iv" : "hO8YmKF/t96j7CHFxLv28A==",
+        "ciphertext" : "clsFYlJrv+cObjCHhPMVL7x73xJwamv9324CqiCCT1FW9Jk7Q6UdJFIkAxf6ogb/DWIWoK8OKBmelXnQtV/5JaBTvQ7N+vYbue0AlndNTKrko98BLzpCUYlhfw9Fcs7I"
+      }
+    } ],
     "certificates" : [ {
       "alias" : "app-certificate-private-key",
       "chain" : "MIIESzCCAzOgAwIBAgIIDE+QibfjqPcwDQYJKoZIhvcNAQELBQAwUTEwMC4GA1UEAwwnSGlnaEJ5dGUvSW50ZWxsaWdlbmNlSHViQEFTRU1MRS0xR1Q5NjkzMRAwDgYDVQQKDAdVbmtub3duMQswCQYDVQQGEwJVUzAeFw0yNTEwMjAxNjIzMTRaFw0zMDEwMTkxNjIzMTRaMFExMDAuBgNVBAMMJ0hpZ2hCeXRlL0ludGVsbGlnZW5jZUh1YkBBU0VNTEUtMUdUOTY5MzEQMA4GA1UECgwHVW5rbm93bjELMAkGA1UEBhMCVVMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCSaTpR+ioslAOro+welXP0DKtnC1HNjoNxLqg9Ajnr5xUw2834/1sl7FpSTecJhttGqq4g9tTkuBeGgB41ufq6haotOQWzM+o5dPgzyzoT6VFigX+OtCwyg4E816G9jPdUO9tKU/R+gUtriFQh/NeU/GLf7rwFjVCv1KuAWaniQmb5x1uGgiisacEFeK3lNzSmGI3LfUNXH1vKQcD/0Fh50Q8gCY0JI9pJ5CsDETwqwGFx0MJQJ49B2pLGVvGWhMMQFXg9negwQC87+osAnz387JtdYmy+t6XY4jS5niTzWPYF7//YwLqTKJVMiBzdRozu1+BXAR0XaleLGZtAzOaRAgMBAAGjggElMIIBITBGBgNVHREEPzA9hit1cm46QVNFTUxFLTFHVDk2OTM6SGlnaEJ5dGU6SW50ZWxsaWdlbmNlSHVigg5BU0VNTEUtMUdUOTY5MzALBgNVHQ8EBAMCAvQwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMAkGA1UdEwQCMAAwHQYDVR0OBBYEFJEIXcOCS0JGr7UpwvRUy77oom9RMIGABgNVHSMEeTB3gBSRCF3DgktCRq+1KcL0VMu+6KJvUaFVpFMwUTEwMC4GA1UEAwwnSGlnaEJ5dGUvSW50ZWxsaWdlbmNlSHViQEFTRU1MRS0xR1Q5NjkzMRAwDgYDVQQKDAdVbmtub3duMQswCQYDVQQGEwJVU4IIDE+QibfjqPcwDQYJKoZIhvcNAQELBQADggEBAB1tLKPAPHUarbQp8tvh6d7xv5TjO0NrUGTDz5kMXXethIc/A08bDy6kh9JARPk+KVea0jpt9AWfLXOq6OrwNFAxyQZD5mj1ZFEberZkcwVQd85UcLOHHFB/vyCPNjRP4DzZRatvEa+xiuDJLpjltpV+DOJCLYM4QlHzi2K6wUJNpbKT2A/U9Ma8bu/CCC5f0NOHsLUiN276kEV+leozfoNJA/LgImvSlv+dvRu08zpmh1SvmWlrq+OfH6wit1wbPirICenr60jTTgBPoqDfNlvJQRhg6mf/Wryz3tp6l2ZAhOquVGP1lwEnNLgteu770BV3Rn6hp37WV4TMhR9iMtw=",
@@ -399,12 +407,8 @@
             "type" : "pass",
             "username" : "aronsemle",
             "password" : {
-              "type" : "Encrypted",
-              "value" : {
-                "keyId" : "h6JwJ9FAZL/BKaNnHStpNg==",
-                "iv" : "bFNGkWZ70wnBgddLx2H60g==",
-                "ciphertext" : "8RsgR7G98qD4WiwTXEWv3N+I7ZeCW8LLWolCE1FssR/7NbBsFrDCf3fiw7zvRFfuCF83K98zsfFO8jGh2LcUI8nE673cb8YZFiJlyOBN+FjwLzYgEQjXJ73cCC8Jd8Wz"
-              }
+              "type" : "Reference",
+              "value" : "gitpass"
             }
           }
         },

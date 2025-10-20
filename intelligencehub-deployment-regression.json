@@ -8,9 +8,72 @@
   },
   "project" : {
     "version" : 12,
-    "connections" : [ ],
+    "connections" : [ {
+      "name" : "opc",
+      "uri" : "opc.tcp://127.0.0.1:49320",
+      "tags" : [ ],
+      "writes" : {
+        "flattenModeledValues" : false
+      },
+      "subscriptions" : {
+        "subscriptionRate" : {
+          "duration" : 1,
+          "units" : "Seconds"
+        }
+      },
+      "storeForward" : {
+        "enabled" : false,
+        "maxEntries" : 100,
+        "waitOnFailureInterval" : {
+          "duration" : 1,
+          "units" : "Seconds"
+        }
+      },
+      "settings" : {
+        "security" : "None",
+        "authentication" : {
+          "type" : "Anonymous"
+        },
+        "connectTimeoutSeconds" : 5,
+        "requestTimeoutMS" : 5000,
+        "maxItemsPerRead" : 512,
+        "maxItemsPerWrite" : 256,
+        "identifierMode" : "NodeId",
+        "mcpEnabled" : "disabled"
+      }
+    } ],
     "conditions" : [ ],
-    "inputs" : [ ],
+    "inputs" : [ {
+      "name" : "_System",
+      "connection" : "opc",
+      "type" : "opc.tcp",
+      "qualifier" : {
+        "type" : "Branch",
+        "identifier" : {
+          "type" : "NodeId",
+          "namespaceIndex" : "2",
+          "identifierType" : "String",
+          "value" : "_System"
+        },
+        "cacheInterval" : {
+          "duration" : 1,
+          "units" : "Hours"
+        },
+        "maxDepth" : 1,
+        "browseVariableNodes" : false,
+        "ignoreBadQuality" : false,
+        "isComplex" : false
+      },
+      "cacheLifetime" : {
+        "enabled" : false
+      },
+      "template" : {
+        "type" : "Off"
+      },
+      "parameters" : {
+        "type" : "EmptyParameters"
+      }
+    } ],
     "outputs" : [ ],
     "modeling" : {
       "models" : [ ],
@@ -324,8 +387,8 @@
         "allowExpressionImports" : false
       },
       "backup" : {
-        "mode" : "manual",
-        "cronSchedule" : "0 3 * * *",
+        "mode" : "scheduled",
+        "cronSchedule" : "* * * * *",
         "repo" : {
           "type" : "git",
           "name" : "HubBackup",

@@ -32,43 +32,261 @@
         "cleanSession" : true,
         "mcpEnabled" : "disabled"
       }
+    }, {
+      "name" : "opc",
+      "uri" : "opc.tcp://127.0.0.1:49320",
+      "tags" : [ ],
+      "writes" : {
+        "flattenModeledValues" : false
+      },
+      "subscriptions" : {
+        "subscriptionRate" : {
+          "duration" : 1,
+          "units" : "Seconds"
+        }
+      },
+      "storeForward" : {
+        "enabled" : false,
+        "maxEntries" : 100,
+        "waitOnFailureInterval" : {
+          "duration" : 1,
+          "units" : "Seconds"
+        }
+      },
+      "settings" : {
+        "security" : "None",
+        "authentication" : {
+          "type" : "Anonymous"
+        },
+        "connectTimeoutSeconds" : 5,
+        "requestTimeoutMS" : 5000,
+        "maxItemsPerRead" : 512,
+        "maxItemsPerWrite" : 256,
+        "identifierMode" : "NodeId",
+        "mcpEnabled" : "disabled"
+      }
     } ],
     "conditions" : [ ],
-    "inputs" : [ ],
+    "inputs" : [ {
+      "name" : "_System",
+      "connection" : "opc",
+      "type" : "opc.tcp",
+      "qualifier" : {
+        "type" : "Branch",
+        "identifier" : {
+          "type" : "NodeId",
+          "namespaceIndex" : "2",
+          "identifierType" : "String",
+          "value" : "_System"
+        },
+        "cacheInterval" : {
+          "duration" : 1,
+          "units" : "Hours"
+        },
+        "maxDepth" : 1,
+        "browseVariableNodes" : false,
+        "ignoreBadQuality" : false,
+        "isComplex" : false
+      },
+      "cacheLifetime" : {
+        "enabled" : false
+      },
+      "template" : {
+        "type" : "Off"
+      },
+      "parameters" : {
+        "type" : "EmptyParameters"
+      }
+    } ],
     "outputs" : [ ],
     "modeling" : {
-      "models" : [ {
-        "name" : "myModel",
-        "tags" : [ ],
-        "attributes" : [ {
-          "attributeType" : "Internal",
-          "name" : "x",
-          "nullable" : false,
-          "required" : false,
-          "array" : false,
-          "internalType" : "Any"
-        }, {
-          "attributeType" : "Internal",
-          "name" : "y",
-          "nullable" : false,
-          "required" : false,
-          "array" : false,
-          "internalType" : "Any"
-        }, {
-          "attributeType" : "Internal",
-          "name" : "z",
-          "nullable" : false,
-          "required" : false,
-          "array" : false,
-          "internalType" : "Any"
-        } ]
-      } ],
+      "models" : [ ],
       "instances" : [ ]
     },
-    "pipelines" : [ ],
+    "pipelines" : [ {
+      "name" : "CallablePipeline",
+      "tags" : [ ],
+      "inputStages" : [ "Transform" ],
+      "stages" : [ {
+        "name" : "Transform",
+        "display" : {
+          "position" : {
+            "x" : 240,
+            "y" : 0
+          }
+        },
+        "config" : {
+          "type" : ".JavaScriptTransformConfig",
+          "transformExpression" : "stage.setValue({...event.value, some: 3, value: 4})"
+        },
+        "outputs" : [ "Return" ]
+      }, {
+        "name" : "Return",
+        "display" : {
+          "position" : {
+            "x" : 690,
+            "y" : 0
+          }
+        },
+        "config" : {
+          "type" : ".ReturnConfig"
+        },
+        "outputs" : [ ]
+      } ],
+      "trackActivity" : false,
+      "triggers" : [ {
+        "name" : "CallableTrigger",
+        "display" : {
+          "position" : {
+            "x" : -450,
+            "y" : 0
+          }
+        },
+        "config" : {
+          "type" : ".TriggerCallable",
+          "enabled" : true,
+          "parameters" : {
+            "type" : "inline",
+            "model" : {
+              "name" : "params",
+              "tags" : [ ],
+              "attributes" : [ {
+                "attributeType" : "Internal",
+                "name" : "array",
+                "nullable" : false,
+                "required" : false,
+                "array" : false,
+                "internalType" : "Any"
+              }, {
+                "attributeType" : "Internal",
+                "name" : "string",
+                "nullable" : false,
+                "required" : false,
+                "array" : false,
+                "defaultValue" : "Default String",
+                "internalType" : "String"
+              }, {
+                "attributeType" : "Internal",
+                "name" : "number",
+                "nullable" : false,
+                "required" : false,
+                "array" : false,
+                "defaultValue" : 123,
+                "internalType" : "Int32"
+              }, {
+                "attributeType" : "Internal",
+                "name" : "bool",
+                "nullable" : false,
+                "required" : false,
+                "array" : false,
+                "defaultValue" : false,
+                "internalType" : "Boolean"
+              }, {
+                "attributeType" : "Internal",
+                "name" : "object",
+                "nullable" : false,
+                "required" : false,
+                "array" : false,
+                "internalType" : "Any"
+              } ]
+            }
+          }
+        }
+      } ],
+      "errorHandler" : {
+        "type" : "default"
+      }
+    }, {
+      "name" : "CallablePiplineWithSmartQuery",
+      "tags" : [ ],
+      "inputStages" : [ "Transform" ],
+      "stages" : [ {
+        "name" : "Transform",
+        "config" : {
+          "type" : ".JavaScriptTransformConfig",
+          "transformExpression" : "stage.setValue({...event.value, some: 3, value: 4})"
+        },
+        "outputs" : [ "Return", "SmartQuery" ]
+      }, {
+        "name" : "SmartQuery",
+        "config" : {
+          "type" : ".SmartQueryConfig",
+          "query" : {
+            "from" : [ "HighByte.**" ],
+            "where" : "",
+            "select" : {
+              "what" : [ "value" ],
+              "as" : "Hierarchy",
+              "delim" : "."
+            }
+          },
+          "breakup" : false
+        },
+        "outputs" : [ ]
+      }, {
+        "name" : "Return",
+        "config" : {
+          "type" : ".ReturnConfig"
+        },
+        "outputs" : [ ]
+      } ],
+      "trackActivity" : false,
+      "triggers" : [ {
+        "name" : "CallableTrigger",
+        "config" : {
+          "type" : ".TriggerCallable",
+          "enabled" : true,
+          "parameters" : {
+            "type" : "EmptyParameters"
+          }
+        }
+      } ],
+      "errorHandler" : {
+        "type" : "default"
+      }
+    } ],
     "tags" : [ ],
     "functions" : [ ],
-    "namespace" : [ ]
+    "namespace" : [ {
+      "id" : "31b0bb64-9eb5-4a7d-b343-2ecbd0957884",
+      "name" : "CallablePipelineWithParams",
+      "reference" : {
+        "type" : "Pipeline",
+        "name" : "CallablePipeline",
+        "path" : "",
+        "params" : {
+          "array" : "[1,2,3]",
+          "number" : "123456789",
+          "bool" : "true",
+          "object" : "{\"some\":1,  \"object\": \"2\"}",
+          "string" : "Override String"
+        }
+      }
+    }, {
+      "id" : "dacc7649-83ad-4116-9ba3-739bac51d838",
+      "name" : "CallablePiplineWithSmartQuery",
+      "reference" : {
+        "type" : "Pipeline",
+        "name" : "CallablePiplineWithSmartQuery",
+        "path" : "",
+        "params" : { }
+      }
+    }, {
+      "id" : "697fa9ab-d8d8-4a61-87ce-ea1588c63505",
+      "name" : "CallablePipeline",
+      "reference" : {
+        "type" : "Pipeline",
+        "name" : "CallablePipeline",
+        "path" : "",
+        "params" : {
+          "array" : "",
+          "string" : null,
+          "number" : null,
+          "bool" : null,
+          "object" : ""
+        }
+      }
+    } ]
   },
   "network" : {
     "version" : 0,
@@ -222,5 +440,6 @@
         "deployFile" : "intelligencehub-deployment-regression.json"
       }
     }
-  }
+  },
+  "identityProviders" : { }
 }

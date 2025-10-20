@@ -1,0 +1,420 @@
+{
+  "productInfo" : {
+    "company" : "HighByte",
+    "product" : "IntelligenceHub",
+    "version" : "4.3.0",
+    "build" : "2025.10.17.299",
+    "stage" : "Alpha"
+  },
+  "project" : {
+    "version" : 12,
+    "connections" : [ {
+      "name" : "opc",
+      "uri" : "opc.tcp://127.0.0.1:49320",
+      "tags" : [ ],
+      "writes" : {
+        "flattenModeledValues" : false
+      },
+      "subscriptions" : {
+        "subscriptionRate" : {
+          "duration" : 1,
+          "units" : "Seconds"
+        }
+      },
+      "storeForward" : {
+        "enabled" : false,
+        "maxEntries" : 100,
+        "waitOnFailureInterval" : {
+          "duration" : 1,
+          "units" : "Seconds"
+        }
+      },
+      "settings" : {
+        "security" : "None",
+        "authentication" : {
+          "type" : "Anonymous"
+        },
+        "connectTimeoutSeconds" : 5,
+        "requestTimeoutMS" : 5000,
+        "maxItemsPerRead" : 512,
+        "maxItemsPerWrite" : 256,
+        "identifierMode" : "NodeId",
+        "mcpEnabled" : "disabled"
+      }
+    } ],
+    "conditions" : [ ],
+    "inputs" : [ {
+      "name" : "_System",
+      "connection" : "opc",
+      "type" : "opc.tcp",
+      "qualifier" : {
+        "type" : "Branch",
+        "identifier" : {
+          "type" : "NodeId",
+          "namespaceIndex" : "2",
+          "identifierType" : "String",
+          "value" : "_System"
+        },
+        "cacheInterval" : {
+          "duration" : 1,
+          "units" : "Hours"
+        },
+        "maxDepth" : 1,
+        "browseVariableNodes" : false,
+        "ignoreBadQuality" : false,
+        "isComplex" : false
+      },
+      "cacheLifetime" : {
+        "enabled" : false
+      },
+      "template" : {
+        "type" : "Off"
+      },
+      "parameters" : {
+        "type" : "EmptyParameters"
+      }
+    } ],
+    "outputs" : [ ],
+    "modeling" : {
+      "models" : [ ],
+      "instances" : [ ]
+    },
+    "pipelines" : [ {
+      "name" : "CallablePipeline",
+      "tags" : [ ],
+      "inputStages" : [ "Transform" ],
+      "stages" : [ {
+        "name" : "Transform",
+        "display" : {
+          "position" : {
+            "x" : 240,
+            "y" : 0
+          }
+        },
+        "config" : {
+          "type" : ".JavaScriptTransformConfig",
+          "transformExpression" : "stage.setValue({...event.value, some: 3, value: 4})"
+        },
+        "outputs" : [ "Return" ]
+      }, {
+        "name" : "Return",
+        "display" : {
+          "position" : {
+            "x" : 690,
+            "y" : 0
+          }
+        },
+        "config" : {
+          "type" : ".ReturnConfig"
+        },
+        "outputs" : [ ]
+      } ],
+      "trackActivity" : false,
+      "triggers" : [ {
+        "name" : "CallableTrigger",
+        "display" : {
+          "position" : {
+            "x" : -450,
+            "y" : 0
+          }
+        },
+        "config" : {
+          "type" : ".TriggerCallable",
+          "enabled" : true,
+          "parameters" : {
+            "type" : "inline",
+            "model" : {
+              "name" : "params",
+              "tags" : [ ],
+              "attributes" : [ {
+                "attributeType" : "Internal",
+                "name" : "array",
+                "nullable" : false,
+                "required" : false,
+                "array" : false,
+                "internalType" : "Any"
+              }, {
+                "attributeType" : "Internal",
+                "name" : "string",
+                "nullable" : false,
+                "required" : false,
+                "array" : false,
+                "defaultValue" : "Default String",
+                "internalType" : "String"
+              }, {
+                "attributeType" : "Internal",
+                "name" : "number",
+                "nullable" : false,
+                "required" : false,
+                "array" : false,
+                "defaultValue" : 123,
+                "internalType" : "Int32"
+              }, {
+                "attributeType" : "Internal",
+                "name" : "bool",
+                "nullable" : false,
+                "required" : false,
+                "array" : false,
+                "defaultValue" : false,
+                "internalType" : "Boolean"
+              }, {
+                "attributeType" : "Internal",
+                "name" : "object",
+                "nullable" : false,
+                "required" : false,
+                "array" : false,
+                "internalType" : "Any"
+              } ]
+            }
+          }
+        }
+      } ],
+      "errorHandler" : {
+        "type" : "default"
+      }
+    }, {
+      "name" : "CallablePiplineWithSmartQuery",
+      "tags" : [ ],
+      "inputStages" : [ "Transform" ],
+      "stages" : [ {
+        "name" : "Transform",
+        "config" : {
+          "type" : ".JavaScriptTransformConfig",
+          "transformExpression" : "stage.setValue({...event.value, some: 3, value: 4})"
+        },
+        "outputs" : [ "Return", "SmartQuery" ]
+      }, {
+        "name" : "SmartQuery",
+        "config" : {
+          "type" : ".SmartQueryConfig",
+          "query" : {
+            "from" : [ "HighByte.**" ],
+            "where" : "",
+            "select" : {
+              "what" : [ "value" ],
+              "as" : "Hierarchy",
+              "delim" : "."
+            }
+          },
+          "breakup" : false
+        },
+        "outputs" : [ ]
+      }, {
+        "name" : "Return",
+        "config" : {
+          "type" : ".ReturnConfig"
+        },
+        "outputs" : [ ]
+      } ],
+      "trackActivity" : false,
+      "triggers" : [ {
+        "name" : "CallableTrigger",
+        "config" : {
+          "type" : ".TriggerCallable",
+          "enabled" : true,
+          "parameters" : {
+            "type" : "EmptyParameters"
+          }
+        }
+      } ],
+      "errorHandler" : {
+        "type" : "default"
+      }
+    } ],
+    "tags" : [ ],
+    "functions" : [ ],
+    "namespace" : [ {
+      "id" : "31b0bb64-9eb5-4a7d-b343-2ecbd0957884",
+      "name" : "CallablePipelineWithParams",
+      "reference" : {
+        "type" : "Pipeline",
+        "name" : "CallablePipeline",
+        "path" : "",
+        "params" : {
+          "array" : "[1,2,3]",
+          "number" : "123456789",
+          "bool" : "true",
+          "object" : "{\"some\":1,  \"object\": \"2\"}",
+          "string" : "Override String"
+        }
+      }
+    }, {
+      "id" : "dacc7649-83ad-4116-9ba3-739bac51d838",
+      "name" : "CallablePiplineWithSmartQuery",
+      "reference" : {
+        "type" : "Pipeline",
+        "name" : "CallablePiplineWithSmartQuery",
+        "path" : "",
+        "params" : { }
+      }
+    }, {
+      "id" : "697fa9ab-d8d8-4a61-87ce-ea1588c63505",
+      "name" : "CallablePipeline",
+      "reference" : {
+        "type" : "Pipeline",
+        "name" : "CallablePipeline",
+        "path" : "",
+        "params" : {
+          "array" : "",
+          "string" : null,
+          "number" : null,
+          "bool" : null,
+          "object" : ""
+        }
+      }
+    } ]
+  },
+  "network" : {
+    "version" : 0,
+    "groups" : [ ],
+    "hubs" : [ ]
+  },
+  "accessControl" : {
+    "apiKeys" : [ ],
+    "version" : 0,
+    "roles" : [ {
+      "name" : "admin",
+      "policyVersion" : 1,
+      "claims" : [ {
+        "resources" : [ "*" ],
+        "actions" : [ "*" ]
+      } ]
+    }, {
+      "name" : "default",
+      "policyVersion" : 1,
+      "claims" : [ {
+        "resources" : [ "*" ],
+        "actions" : [ "read" ]
+      }, {
+        "resources" : [ "connection", "instance", "pipeline" ],
+        "actions" : [ "*" ]
+      } ]
+    } ],
+    "users" : [ {
+      "name" : "administrator",
+      "credentials" : {
+        "salt" : "1wT5TjFvPccdUxJxElSqQQ==",
+        "hashedPassword" : "cS3o7sdXORMcxTI2fDaomMa99aQ2xh6vApLmZBolYQbJumUdP+dKHGTuYObVHeX6LlyqGywXDt8B3wS8kDbCSQ=="
+      },
+      "policyVersion" : 1,
+      "roles" : [ "admin" ],
+      "claims" : [ ]
+    } ]
+  },
+  "system" : {
+    "version" : 0,
+    "variables" : [ ],
+    "secrets" : [ {
+      "type" : "Encrypted",
+      "name" : "gitpass",
+      "value" : {
+        "keyId" : "h6JwJ9FAZL/BKaNnHStpNg==",
+        "iv" : "hO8YmKF/t96j7CHFxLv28A==",
+        "ciphertext" : "clsFYlJrv+cObjCHhPMVL7x73xJwamv9324CqiCCT1FW9Jk7Q6UdJFIkAxf6ogb/DWIWoK8OKBmelXnQtV/5JaBTvQ7N+vYbue0AlndNTKrko98BLzpCUYlhfw9Fcs7I"
+      }
+    } ],
+    "certificates" : [ {
+      "alias" : "app-certificate-private-key",
+      "chain" : "MIIESzCCAzOgAwIBAgIIDE+QibfjqPcwDQYJKoZIhvcNAQELBQAwUTEwMC4GA1UEAwwnSGlnaEJ5dGUvSW50ZWxsaWdlbmNlSHViQEFTRU1MRS0xR1Q5NjkzMRAwDgYDVQQKDAdVbmtub3duMQswCQYDVQQGEwJVUzAeFw0yNTEwMjAxNjIzMTRaFw0zMDEwMTkxNjIzMTRaMFExMDAuBgNVBAMMJ0hpZ2hCeXRlL0ludGVsbGlnZW5jZUh1YkBBU0VNTEUtMUdUOTY5MzEQMA4GA1UECgwHVW5rbm93bjELMAkGA1UEBhMCVVMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCSaTpR+ioslAOro+welXP0DKtnC1HNjoNxLqg9Ajnr5xUw2834/1sl7FpSTecJhttGqq4g9tTkuBeGgB41ufq6haotOQWzM+o5dPgzyzoT6VFigX+OtCwyg4E816G9jPdUO9tKU/R+gUtriFQh/NeU/GLf7rwFjVCv1KuAWaniQmb5x1uGgiisacEFeK3lNzSmGI3LfUNXH1vKQcD/0Fh50Q8gCY0JI9pJ5CsDETwqwGFx0MJQJ49B2pLGVvGWhMMQFXg9negwQC87+osAnz387JtdYmy+t6XY4jS5niTzWPYF7//YwLqTKJVMiBzdRozu1+BXAR0XaleLGZtAzOaRAgMBAAGjggElMIIBITBGBgNVHREEPzA9hit1cm46QVNFTUxFLTFHVDk2OTM6SGlnaEJ5dGU6SW50ZWxsaWdlbmNlSHVigg5BU0VNTEUtMUdUOTY5MzALBgNVHQ8EBAMCAvQwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMAkGA1UdEwQCMAAwHQYDVR0OBBYEFJEIXcOCS0JGr7UpwvRUy77oom9RMIGABgNVHSMEeTB3gBSRCF3DgktCRq+1KcL0VMu+6KJvUaFVpFMwUTEwMC4GA1UEAwwnSGlnaEJ5dGUvSW50ZWxsaWdlbmNlSHViQEFTRU1MRS0xR1Q5NjkzMRAwDgYDVQQKDAdVbmtub3duMQswCQYDVQQGEwJVU4IIDE+QibfjqPcwDQYJKoZIhvcNAQELBQADggEBAB1tLKPAPHUarbQp8tvh6d7xv5TjO0NrUGTDz5kMXXethIc/A08bDy6kh9JARPk+KVea0jpt9AWfLXOq6OrwNFAxyQZD5mj1ZFEberZkcwVQd85UcLOHHFB/vyCPNjRP4DzZRatvEa+xiuDJLpjltpV+DOJCLYM4QlHzi2K6wUJNpbKT2A/U9Ma8bu/CCC5f0NOHsLUiN276kEV+leozfoNJA/LgImvSlv+dvRu08zpmh1SvmWlrq+OfH6wit1wbPirICenr60jTTgBPoqDfNlvJQRhg6mf/Wryz3tp6l2ZAhOquVGP1lwEnNLgteu770BV3Rn6hp37WV4TMhR9iMtw=",
+      "encryptKey" : {
+        "type" : "Encrypted",
+        "value" : {
+          "keyId" : "h6JwJ9FAZL/BKaNnHStpNg==",
+          "iv" : "x/QzXYvGdfN92Nrmp/LKnQ==",
+          "ciphertext" : "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"
+        }
+      }
+    } ],
+    "settings" : {
+      "version" : 0,
+      "directories" : { },
+      "api" : {
+        "sessionTimeout" : {
+          "duration" : 8,
+          "units" : "Hours"
+        },
+        "authenticationPreference" : "STAY_LOGGED_IN"
+      },
+      "configuration" : {
+        "scheme" : "http",
+        "schemeCertificate" : "ssl-certificate-private-key",
+        "port" : 45245,
+        "centralConfig" : false,
+        "autoSaveIntervalSeconds" : 60,
+        "backupCopies" : 50
+      },
+      "hbMqttBroker" : {
+        "enabled" : false,
+        "allowAnonymous" : true,
+        "endpoints" : [ {
+          "hostname" : "0.0.0.0",
+          "port" : 1885,
+          "useSSL" : false,
+          "certificateKeyAlias" : "",
+          "protocol" : "mqtt.tcp"
+        }, {
+          "hostname" : "0.0.0.0",
+          "port" : 1886,
+          "useSSL" : false,
+          "certificateKeyAlias" : "",
+          "protocol" : "mqtt.ws"
+        } ]
+      },
+      "restDataServer" : {
+        "enabled" : false,
+        "hostname" : "0.0.0.0",
+        "port" : 8885,
+        "useHttps" : false,
+        "schemeCertificate" : "",
+        "allowAnonymous" : false,
+        "authenticationModes" : [ "API_KEY" ],
+        "mcpServerEnabled" : false,
+        "mcpServerPort" : 45345,
+        "mcpConfigTools" : "disabled"
+      },
+      "log" : {
+        "debugLogging" : "NONE",
+        "fileSizeMB" : 100,
+        "logAuditEvents" : false
+      },
+      "redundancy" : {
+        "backup" : {
+          "enabled" : false,
+          "primary" : {
+            "uri" : "",
+            "pingIntervalSeconds" : 10,
+            "pingAttempts" : 1
+          }
+        }
+      },
+      "expressionEngine" : {
+        "allowExpressionEval" : false,
+        "allowEnvironmentVariables" : false,
+        "expressionEngineTimeoutSeconds" : 10,
+        "hubBindingName" : "hub",
+        "allowExpressionImports" : false
+      },
+      "backup" : {
+        "mode" : "scheduled",
+        "cronSchedule" : "* * * * *",
+        "repo" : {
+          "type" : "git",
+          "name" : "HubBackup",
+          "uri" : "https://github.com/aronsemle/hbtest.git",
+          "author" : "HighByte IntelligenceHub",
+          "email" : "aron.semle@highbyte.com",
+          "auth" : {
+            "type" : "pass",
+            "username" : "aronsemle",
+            "password" : {
+              "type" : "Reference",
+              "value" : "gitpass"
+            }
+          }
+        },
+        "branch" : "main",
+        "deployFile" : "intelligencehub-deployment-regression.json"
+      }
+    }
+  }
+}
